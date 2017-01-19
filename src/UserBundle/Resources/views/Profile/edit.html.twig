@@ -1,0 +1,76 @@
+{% extends '::base.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block body %}
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Mise à jour de votre profil</div>
+                <div class="panel-body">
+                    {% if is_granted("ROLE_ADMINISTRATEUR") %}
+                        <div class="col-xs-12 col-sm-8">
+                            {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit form-horizontal' } }) }}
+                                <div class="form-group">
+                                    {{ form_label(form.nom, "Nom", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                    <div class="col-sm-9">
+                                        {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.prenom, "Prénom", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                    <div class="col-sm-9">
+                                        {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.email, "Adresse e-mail", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                    <div class="col-sm-9">
+                                        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.username, "Identifiant", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                    <div class="col-sm-9">
+                                        {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.current_password, "Mot de passe", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                    <div class="col-sm-9">
+                                        {{ form_widget(form.current_password, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="hide">    
+                                    {{ form_rest(form) }} 
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-success"/>{{ 'profile.edit.submit'|trans }}</button>
+                                </div>  
+                            {{ form_end(form) }}  
+                        </div>  
+                        {% if success is defined %}
+                            <div class="col-xs-12 col-sm-4 animated rubberBand">
+                                    <div class="panel-heading">
+                                        {% if success == false %}
+                                            <div class="alert alert-danger">
+                                                Une erreur est survenue lors de la mise à jour de votre profil : <br />
+                                                {{ form_errors(form) }}
+                                            </div>
+                                        {% else %}
+                                            <div class="alert alert-success">
+                                            Votre profil a bien été mis à jour
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}    
+                    {% else %}    
+                        <div class="alert alert-danger">Vous n'avez pas l'autorisation pour accèder à cette partie du site</div>
+                    {% endif %}    
+                </div>
+            </div>
+        </div>
+              
+            
+    </div>
+{% endblock body %}

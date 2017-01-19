@@ -1,0 +1,1462 @@
+<?php
+
+namespace UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+/**
+ * VaConseillers
+ *
+ * @ORM\Table(name="VA_Conseillers")
+ * @ORM\Entity
+ */
+class VaConseillers
+{
+    /**
+     * 
+     * @ORM\ManyToOne(targetEntity="PrestatairesBundle\Entity\VaPrestataires", inversedBy="conseillers")
+     * @ORM\JoinColumn(name="Conseiller_Prestataire",referencedColumnName="Prestataire_Code")
+     */
+    
+    private $conseillerPrestataire;
+
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_Pays", type="string", length=2, nullable=false)
+     */
+    private $conseillerPays;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="Conseiller_Date_Create", type="datetime", nullable=false)
+     */
+    private $conseillerDateCreate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_nom", type="string", length=40, nullable=false)
+     */
+    private $conseillerNom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_Adresse1", type="string", length=30, nullable=false)
+     */
+    private $conseillerAdresse1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_Adresse2", type="string", length=30, nullable=false)
+     */
+    private $conseillerAdresse2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_CP", type="string", length=5, nullable=false)
+     */
+    private $conseillerCp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_Ville", type="string", length=40, nullable=false)
+     */
+    private $conseillerVille;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_Tel1", type="string", length=14, nullable=false)
+     */
+    private $conseillerTel1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_Tel2", type="string", length=14, nullable=false)
+     */
+    private $conseillerTel2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_Email", type="string", length=100, nullable=false)
+     */
+    private $conseillerEmail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_Doc", type="string", length=1, nullable=false)
+     */
+    private $conseillerDoc;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Conseiller_Page", type="integer", nullable=false)
+     */
+    private $conseillerPage;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Conseiller_Coupons_Recu", type="smallint", nullable=false)
+     */
+    private $conseillerCouponsRecu;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Conseiller_Coupons_Mois", type="smallint", nullable=false)
+     */
+    private $conseillerCouponsMois;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Conseiller_Coupons_Per", type="smallint", nullable=false)
+     */
+    private $conseillerCouponsPer;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Conseiller_Inv_Mois", type="smallint", nullable=false)
+     */
+    private $conseillerInvMois;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Conseiller_Inv_Prec", type="smallint", nullable=false)
+     */
+    private $conseillerInvPrec;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Conseiller_Nb_Desac", type="smallint", nullable=true)
+     */
+    private $conseillerNbDesac;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Conseiller_Type_Salaire", type="smallint", nullable=false)
+     */
+    private $conseillerTypeSalaire;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Conseiller_Bonus", type="smallint", nullable=false)
+     */
+    private $conseillerBonus;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_Service", type="string", length=8, nullable=false)
+     */
+    private $conseillerService;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="Conseiller_DateUpdate", type="datetime", nullable=false)
+     */
+    private $conseillerDateupdate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_Auteur", type="string", length=50, nullable=false)
+     */
+    private $conseillerAuteur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_CodeAgresso", type="string", length=8, nullable=false)
+     */
+    private $conseillerCodeagresso;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="Conseiller_Actif", type="boolean", nullable=false)
+     */
+    private $conseillerActif;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_Frais", type="decimal", precision=18, scale=2, nullable=false)
+     */
+    private $conseillerFrais;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_Base_Salaire", type="decimal", precision=18, scale=2, nullable=false)
+     */
+    private $conseillerBaseSalaire;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_Language", type="string", length=5, nullable=false)
+     */
+    private $conseillerLanguage;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Conseiller_NbRelances", type="integer", nullable=true)
+     */
+    private $conseillerNbrelances;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_Titre", type="string", length=1, nullable=true)
+     */
+    private $conseillerTitre;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Conseiller_ForfaitGratuit", type="smallint", nullable=true)
+     */
+    private $conseillerForfaitgratuit;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_Initiale", type="string", length=3, nullable=false)
+     */
+    private $conseillerInitiale;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_TelProfessionnel", type="string", length=14, nullable=false)
+     */
+    private $conseillerTelprofessionnel;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_Fax", type="string", length=20, nullable=false)
+     */
+    private $conseillerFax;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="Conseiller_Doc_ParFax", type="boolean", nullable=false)
+     */
+    private $conseillerDocParfax;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="Conseiller_Doc_ParMail", type="boolean", nullable=false)
+     */
+    private $conseillerDocParmail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_Code_Iconet", type="string", length=8, nullable=true)
+     */
+    private $conseillerCodeIconet;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_Mdp_Iconet", type="string", length=8, nullable=true)
+     */
+    private $conseillerMdpIconet;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="Conseiller_Connexion_Iconet", type="boolean", nullable=false)
+     */
+    private $conseillerConnexionIconet;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="Conseiller_Iconet_Actif", type="boolean", nullable=false)
+     */
+    private $conseillerIconetActif;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="Conseiller_PQ_Prorata", type="boolean", nullable=true)
+     */
+    private $conseillerPqProrata;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_Superviseur", type="string", length=8, nullable=false)
+     */
+    private $conseillerSuperviseur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_CodePaie", type="string", length=8, nullable=false)
+     */
+    private $conseillerCodepaie;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Conseiller_TypeCalculPaie", type="smallint", nullable=false)
+     */
+    private $conseillerTypecalculpaie;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\Utilisateurs")
+     * @ORM\JoinColumn(name="Conseiller_Code_Profil", referencedColumnName="Code_Profil")
+    */
+    protected $conseillerCodeProfil;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Conseiller_Code", type="string", length=8)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $conseillerCode;
+
+
+
+    /**
+     * Set conseillerPrestataire
+     *
+     * @param string $conseillerPrestataire
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerPrestataire($conseillerPrestataire)
+    {
+        $this->conseillerPrestataire = $conseillerPrestataire;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerPrestataire
+     *
+     * @return string
+     */
+    public function getConseillerPrestataire()
+    {
+        return $this->conseillerPrestataire;
+    }
+
+    /**
+     * Set conseillerPays
+     *
+     * @param string $conseillerPays
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerPays($conseillerPays)
+    {
+        $this->conseillerPays = $conseillerPays;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerPays
+     *
+     * @return string
+     */
+    public function getConseillerPays()
+    {
+        return $this->conseillerPays;
+    }
+
+    /**
+     * Set conseillerDateCreate
+     *
+     * @param \DateTime $conseillerDateCreate
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerDateCreate($conseillerDateCreate)
+    {
+        $this->conseillerDateCreate = $conseillerDateCreate;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerDateCreate
+     *
+     * @return \DateTime
+     */
+    public function getConseillerDateCreate()
+    {
+        return $this->conseillerDateCreate;
+    }
+
+    /**
+     * Set conseillerNom
+     *
+     * @param string $conseillerNom
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerNom($conseillerNom)
+    {
+        $this->conseillerNom = $conseillerNom;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerNom
+     *
+     * @return string
+     */
+    public function getConseillerNom()
+    {
+        return $this->conseillerNom;
+    }
+
+    /**
+     * Set conseillerAdresse1
+     *
+     * @param string $conseillerAdresse1
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerAdresse1($conseillerAdresse1)
+    {
+        $this->conseillerAdresse1 = $conseillerAdresse1;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerAdresse1
+     *
+     * @return string
+     */
+    public function getConseillerAdresse1()
+    {
+        return $this->conseillerAdresse1;
+    }
+
+    /**
+     * Set conseillerAdresse2
+     *
+     * @param string $conseillerAdresse2
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerAdresse2($conseillerAdresse2)
+    {
+        $this->conseillerAdresse2 = $conseillerAdresse2;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerAdresse2
+     *
+     * @return string
+     */
+    public function getConseillerAdresse2()
+    {
+        return $this->conseillerAdresse2;
+    }
+
+    /**
+     * Set conseillerCp
+     *
+     * @param string $conseillerCp
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerCp($conseillerCp)
+    {
+        $this->conseillerCp = $conseillerCp;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerCp
+     *
+     * @return string
+     */
+    public function getConseillerCp()
+    {
+        return $this->conseillerCp;
+    }
+
+    /**
+     * Set conseillerVille
+     *
+     * @param string $conseillerVille
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerVille($conseillerVille)
+    {
+        $this->conseillerVille = $conseillerVille;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerVille
+     *
+     * @return string
+     */
+    public function getConseillerVille()
+    {
+        return $this->conseillerVille;
+    }
+
+    /**
+     * Set conseillerTel1
+     *
+     * @param string $conseillerTel1
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerTel1($conseillerTel1)
+    {
+        $this->conseillerTel1 = $conseillerTel1;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerTel1
+     *
+     * @return string
+     */
+    public function getConseillerTel1()
+    {
+        return $this->conseillerTel1;
+    }
+
+    /**
+     * Set conseillerTel2
+     *
+     * @param string $conseillerTel2
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerTel2($conseillerTel2)
+    {
+        $this->conseillerTel2 = $conseillerTel2;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerTel2
+     *
+     * @return string
+     */
+    public function getConseillerTel2()
+    {
+        return $this->conseillerTel2;
+    }
+
+    /**
+     * Set conseillerEmail
+     *
+     * @param string $conseillerEmail
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerEmail($conseillerEmail)
+    {
+        $this->conseillerEmail = $conseillerEmail;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerEmail
+     *
+     * @return string
+     */
+    public function getConseillerEmail()
+    {
+        return $this->conseillerEmail;
+    }
+
+    /**
+     * Set conseillerDoc
+     *
+     * @param string $conseillerDoc
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerDoc($conseillerDoc)
+    {
+        $this->conseillerDoc = $conseillerDoc;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerDoc
+     *
+     * @return string
+     */
+    public function getConseillerDoc()
+    {
+        return $this->conseillerDoc;
+    }
+
+    /**
+     * Set conseillerPage
+     *
+     * @param integer $conseillerPage
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerPage($conseillerPage)
+    {
+        $this->conseillerPage = $conseillerPage;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerPage
+     *
+     * @return integer
+     */
+    public function getConseillerPage()
+    {
+        return $this->conseillerPage;
+    }
+
+    /**
+     * Set conseillerCouponsRecu
+     *
+     * @param integer $conseillerCouponsRecu
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerCouponsRecu($conseillerCouponsRecu)
+    {
+        $this->conseillerCouponsRecu = $conseillerCouponsRecu;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerCouponsRecu
+     *
+     * @return integer
+     */
+    public function getConseillerCouponsRecu()
+    {
+        return $this->conseillerCouponsRecu;
+    }
+
+    /**
+     * Set conseillerCouponsMois
+     *
+     * @param integer $conseillerCouponsMois
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerCouponsMois($conseillerCouponsMois)
+    {
+        $this->conseillerCouponsMois = $conseillerCouponsMois;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerCouponsMois
+     *
+     * @return integer
+     */
+    public function getConseillerCouponsMois()
+    {
+        return $this->conseillerCouponsMois;
+    }
+
+    /**
+     * Set conseillerCouponsPer
+     *
+     * @param integer $conseillerCouponsPer
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerCouponsPer($conseillerCouponsPer)
+    {
+        $this->conseillerCouponsPer = $conseillerCouponsPer;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerCouponsPer
+     *
+     * @return integer
+     */
+    public function getConseillerCouponsPer()
+    {
+        return $this->conseillerCouponsPer;
+    }
+
+    /**
+     * Set conseillerInvMois
+     *
+     * @param integer $conseillerInvMois
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerInvMois($conseillerInvMois)
+    {
+        $this->conseillerInvMois = $conseillerInvMois;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerInvMois
+     *
+     * @return integer
+     */
+    public function getConseillerInvMois()
+    {
+        return $this->conseillerInvMois;
+    }
+
+    /**
+     * Set conseillerInvPrec
+     *
+     * @param integer $conseillerInvPrec
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerInvPrec($conseillerInvPrec)
+    {
+        $this->conseillerInvPrec = $conseillerInvPrec;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerInvPrec
+     *
+     * @return integer
+     */
+    public function getConseillerInvPrec()
+    {
+        return $this->conseillerInvPrec;
+    }
+
+    /**
+     * Set conseillerNbDesac
+     *
+     * @param integer $conseillerNbDesac
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerNbDesac($conseillerNbDesac)
+    {
+        $this->conseillerNbDesac = $conseillerNbDesac;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerNbDesac
+     *
+     * @return integer
+     */
+    public function getConseillerNbDesac()
+    {
+        return $this->conseillerNbDesac;
+    }
+
+    /**
+     * Set conseillerTypeSalaire
+     *
+     * @param integer $conseillerTypeSalaire
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerTypeSalaire($conseillerTypeSalaire)
+    {
+        $this->conseillerTypeSalaire = $conseillerTypeSalaire;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerTypeSalaire
+     *
+     * @return integer
+     */
+    public function getConseillerTypeSalaire()
+    {
+        return $this->conseillerTypeSalaire;
+    }
+
+    /**
+     * Set conseillerBonus
+     *
+     * @param integer $conseillerBonus
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerBonus($conseillerBonus)
+    {
+        $this->conseillerBonus = $conseillerBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerBonus
+     *
+     * @return integer
+     */
+    public function getConseillerBonus()
+    {
+        return $this->conseillerBonus;
+    }
+
+    /**
+     * Set conseillerService
+     *
+     * @param string $conseillerService
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerService($conseillerService)
+    {
+        $this->conseillerService = $conseillerService;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerService
+     *
+     * @return string
+     */
+    public function getConseillerService()
+    {
+        return $this->conseillerService;
+    }
+
+    /**
+     * Set conseillerDateupdate
+     *
+     * @param \DateTime $conseillerDateupdate
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerDateupdate($conseillerDateupdate)
+    {
+        $this->conseillerDateupdate = $conseillerDateupdate;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerDateupdate
+     *
+     * @return \DateTime
+     */
+    public function getConseillerDateupdate()
+    {
+        return $this->conseillerDateupdate;
+    }
+
+    /**
+     * Set conseillerAuteur
+     *
+     * @param string $conseillerAuteur
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerAuteur($conseillerAuteur)
+    {
+        $this->conseillerAuteur = $conseillerAuteur;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerAuteur
+     *
+     * @return string
+     */
+    public function getConseillerAuteur()
+    {
+        return $this->conseillerAuteur;
+    }
+
+    /**
+     * Set conseillerCodeagresso
+     *
+     * @param string $conseillerCodeagresso
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerCodeagresso($conseillerCodeagresso)
+    {
+        $this->conseillerCodeagresso = $conseillerCodeagresso;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerCodeagresso
+     *
+     * @return string
+     */
+    public function getConseillerCodeagresso()
+    {
+        return $this->conseillerCodeagresso;
+    }
+
+    /**
+     * Set conseillerActif
+     *
+     * @param boolean $conseillerActif
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerActif($conseillerActif)
+    {
+        $this->conseillerActif = $conseillerActif;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerActif
+     *
+     * @return boolean
+     */
+    public function getConseillerActif()
+    {
+        return $this->conseillerActif;
+    }
+
+    /**
+     * Set conseillerFrais
+     *
+     * @param string $conseillerFrais
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerFrais($conseillerFrais)
+    {
+        $this->conseillerFrais = $conseillerFrais;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerFrais
+     *
+     * @return string
+     */
+    public function getConseillerFrais()
+    {
+        return $this->conseillerFrais;
+    }
+
+    /**
+     * Set conseillerBaseSalaire
+     *
+     * @param string $conseillerBaseSalaire
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerBaseSalaire($conseillerBaseSalaire)
+    {
+        $this->conseillerBaseSalaire = $conseillerBaseSalaire;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerBaseSalaire
+     *
+     * @return string
+     */
+    public function getConseillerBaseSalaire()
+    {
+        return $this->conseillerBaseSalaire;
+    }
+
+    /**
+     * Set conseillerLanguage
+     *
+     * @param string $conseillerLanguage
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerLanguage($conseillerLanguage)
+    {
+        $this->conseillerLanguage = $conseillerLanguage;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerLanguage
+     *
+     * @return string
+     */
+    public function getConseillerLanguage()
+    {
+        return $this->conseillerLanguage;
+    }
+
+    /**
+     * Set conseillerNbrelances
+     *
+     * @param integer $conseillerNbrelances
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerNbrelances($conseillerNbrelances)
+    {
+        $this->conseillerNbrelances = $conseillerNbrelances;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerNbrelances
+     *
+     * @return integer
+     */
+    public function getConseillerNbrelances()
+    {
+        return $this->conseillerNbrelances;
+    }
+
+    /**
+     * Set conseillerTitre
+     *
+     * @param string $conseillerTitre
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerTitre($conseillerTitre)
+    {
+        $this->conseillerTitre = $conseillerTitre;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerTitre
+     *
+     * @return string
+     */
+    public function getConseillerTitre()
+    {
+        return $this->conseillerTitre;
+    }
+
+    /**
+     * Set conseillerForfaitgratuit
+     *
+     * @param integer $conseillerForfaitgratuit
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerForfaitgratuit($conseillerForfaitgratuit)
+    {
+        $this->conseillerForfaitgratuit = $conseillerForfaitgratuit;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerForfaitgratuit
+     *
+     * @return integer
+     */
+    public function getConseillerForfaitgratuit()
+    {
+        return $this->conseillerForfaitgratuit;
+    }
+
+    /**
+     * Set conseillerInitiale
+     *
+     * @param string $conseillerInitiale
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerInitiale($conseillerInitiale)
+    {
+        $this->conseillerInitiale = $conseillerInitiale;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerInitiale
+     *
+     * @return string
+     */
+    public function getConseillerInitiale()
+    {
+        return $this->conseillerInitiale;
+    }
+
+    /**
+     * Set conseillerTelprofessionnel
+     *
+     * @param string $conseillerTelprofessionnel
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerTelprofessionnel($conseillerTelprofessionnel)
+    {
+        $this->conseillerTelprofessionnel = $conseillerTelprofessionnel;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerTelprofessionnel
+     *
+     * @return string
+     */
+    public function getConseillerTelprofessionnel()
+    {
+        return $this->conseillerTelprofessionnel;
+    }
+
+    /**
+     * Set conseillerFax
+     *
+     * @param string $conseillerFax
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerFax($conseillerFax)
+    {
+        $this->conseillerFax = $conseillerFax;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerFax
+     *
+     * @return string
+     */
+    public function getConseillerFax()
+    {
+        return $this->conseillerFax;
+    }
+
+    /**
+     * Set conseillerDocParfax
+     *
+     * @param boolean $conseillerDocParfax
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerDocParfax($conseillerDocParfax)
+    {
+        $this->conseillerDocParfax = $conseillerDocParfax;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerDocParfax
+     *
+     * @return boolean
+     */
+    public function getConseillerDocParfax()
+    {
+        return $this->conseillerDocParfax;
+    }
+
+    /**
+     * Set conseillerDocParmail
+     *
+     * @param boolean $conseillerDocParmail
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerDocParmail($conseillerDocParmail)
+    {
+        $this->conseillerDocParmail = $conseillerDocParmail;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerDocParmail
+     *
+     * @return boolean
+     */
+    public function getConseillerDocParmail()
+    {
+        return $this->conseillerDocParmail;
+    }
+
+    /**
+     * Set conseillerCodeIconet
+     *
+     * @param string $conseillerCodeIconet
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerCodeIconet($conseillerCodeIconet)
+    {
+        $this->conseillerCodeIconet = $conseillerCodeIconet;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerCodeIconet
+     *
+     * @return string
+     */
+    public function getConseillerCodeIconet()
+    {
+        return $this->conseillerCodeIconet;
+    }
+
+    /**
+     * Set conseillerMdpIconet
+     *
+     * @param string $conseillerMdpIconet
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerMdpIconet($conseillerMdpIconet)
+    {
+        $this->conseillerMdpIconet = $conseillerMdpIconet;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerMdpIconet
+     *
+     * @return string
+     */
+    public function getConseillerMdpIconet()
+    {
+        return $this->conseillerMdpIconet;
+    }
+
+    /**
+     * Set conseillerConnexionIconet
+     *
+     * @param boolean $conseillerConnexionIconet
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerConnexionIconet($conseillerConnexionIconet)
+    {
+        $this->conseillerConnexionIconet = $conseillerConnexionIconet;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerConnexionIconet
+     *
+     * @return boolean
+     */
+    public function getConseillerConnexionIconet()
+    {
+        return $this->conseillerConnexionIconet;
+    }
+
+    /**
+     * Set conseillerIconetActif
+     *
+     * @param boolean $conseillerIconetActif
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerIconetActif($conseillerIconetActif)
+    {
+        $this->conseillerIconetActif = $conseillerIconetActif;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerIconetActif
+     *
+     * @return boolean
+     */
+    public function getConseillerIconetActif()
+    {
+        return $this->conseillerIconetActif;
+    }
+
+    /**
+     * Set conseillerPqProrata
+     *
+     * @param boolean $conseillerPqProrata
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerPqProrata($conseillerPqProrata)
+    {
+        $this->conseillerPqProrata = $conseillerPqProrata;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerPqProrata
+     *
+     * @return boolean
+     */
+    public function getConseillerPqProrata()
+    {
+        return $this->conseillerPqProrata;
+    }
+
+    /**
+     * Set conseillerSuperviseur
+     *
+     * @param string $conseillerSuperviseur
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerSuperviseur($conseillerSuperviseur)
+    {
+        $this->conseillerSuperviseur = $conseillerSuperviseur;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerSuperviseur
+     *
+     * @return string
+     */
+    public function getConseillerSuperviseur()
+    {
+        return $this->conseillerSuperviseur;
+    }
+
+    /**
+     * Set conseillerCodepaie
+     *
+     * @param string $conseillerCodepaie
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerCodepaie($conseillerCodepaie)
+    {
+        $this->conseillerCodepaie = $conseillerCodepaie;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerCodepaie
+     *
+     * @return string
+     */
+    public function getConseillerCodepaie()
+    {
+        return $this->conseillerCodepaie;
+    }
+
+    /**
+     * Set conseillerTypecalculpaie
+     *
+     * @param integer $conseillerTypecalculpaie
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerTypecalculpaie($conseillerTypecalculpaie)
+    {
+        $this->conseillerTypecalculpaie = $conseillerTypecalculpaie;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerTypecalculpaie
+     *
+     * @return integer
+     */
+    public function getConseillerTypecalculpaie()
+    {
+        return $this->conseillerTypecalculpaie;
+    }
+
+    /**
+     * Get conseillerCode
+     *
+     * @return string
+     */
+    public function getConseillerCode()
+    {
+        return $this->conseillerCode;
+    }
+
+    /**
+     * Set conseillerCodeProfil
+     *
+     * @param \UserBundle\Entity\Utilisateurs $conseillerCodeProfil
+     *
+     * @return VaConseillers
+     */
+    public function setConseillerCodeProfil(\UserBundle\Entity\Utilisateurs $conseillerCodeProfil)
+    {
+        $this->conseillerCodeProfil = $conseillerCodeProfil;
+
+        return $this;
+    }
+
+    /**
+     * Get conseillerCodeProfil
+     *
+     * @return \UserBundle\Entity\Utilisateurs
+     */
+    public function getConseillerCodeProfil()
+    {
+        return $this->conseillerCodeProfil;
+    }
+    
+}

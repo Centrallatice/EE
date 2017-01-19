@@ -1,0 +1,93 @@
+{% extends ajax ? '::baseajax.html.twig' : '::base.html.twig' %}
+{% block title %}Gestion des utilisateurs {% endblock %}
+{% block body %}
+        {% if ajax==false %}
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <a role="button" class="btn btn-success pull-right" href="{{ path('user_registration_register')}}"><i class="fa fa-plus-circle"></i> Créer un utilisateur</a>
+                </div>
+
+                <div class="box-body"> 
+        {% endif %}
+        <div id="users">
+                <div class="{% if ajax==false %}col-lg-6{%else%}col-lg-12{%endif%}">
+                    {% if ajax==false %}<form class="form-inline" method="get" action="{{ path('ListesUtilisateurs')}}">{% endif %}
+                        <div class="form-group">
+                            <label for="presta">Prestataire : </label>
+                                <div class="input-group">
+                                    <select class="form-control" id="presta" name="presta">
+                                         {% for p in PrestataireListe %}
+                                             <option {% if PExistant == p %}selected="selected" {% endif %} value="{{p}}">{{p}}</option>
+                                         {% endfor %}
+                                    </select>
+                                    <span class="input-group-btn">
+                                        <button type="{% if ajax==false %}submit{% else %}button{% endif %}" {% if ajax==true %}onclick="getUserList(1)"{% endif %} class="btn btn-success">
+                                            OK
+                                        </button>
+                                    </span>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input class="search form-control" placeholder="Rechercher par code ou nom" />
+                                <span class="input-group-btn">
+                                    <button class="sort btn btn-default" data-sort="nom">
+                                        Trier par Nom
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    {% if ajax==false %}</form>{% endif %}
+                </div>
+                <div class="col-xs-12">
+                    <table class="table table-striped table-condensed table-responsive listUserList">
+                        <thead>
+                            <tr>
+                                <th>Code Profil</th>
+                                <th>Nom</th>
+                                <th>Login</th>
+                                <th>Mot de passe</th>
+                                <th>Prestataire</th>
+                                <th>Actions</th>
+                        </thead>
+                        <tbody class="list">
+                        {% for u in Users %}
+                            <tr>
+                                <td class='code'>{{u.codeProfil}}</td>
+                                <td class='nom'>{{u.Nom}} {{u.Prenom}}</td>
+                                <td class='login'>{{u.username}}</td>
+                                <td class='mdp'>{{u.passwordClear}}</td>
+                                <td>{{u.Prestataire}}</td>
+                                <td>
+                                    {% if ajax==false %}
+                                        <a role="button" href="{{ path('EditionUtilisateur', {'codeProfil': u.codeProfil}) }}"  class="btn btn-info"><i class="fa fa-edit" title="Modifier"></i></a>
+                                        {% if u.enabled==true %}
+                                            <a role="button" href="{{ path('setEtatUtilisateur', {'codeProfil': u.codeProfil,'Etat':0}) }}" class="btn btn-warning"><i class="fa fa-eye-slash" title="Désactiver"></i></a>
+                                        {% else %}
+                                            <a role="button" href="{{ path('setEtatUtilisateur', {'codeProfil': u.codeProfil,'Etat':0}) }}" class="btn btn-success"><i class="fa fa-eye" title="Activer"></i></a>
+                                        {% endif %}
+                                        {% if is_granted("ROLE_ADMINISTRATEUR") %}
+                                            <a role="button" href="{{ path('conseiller_default_index') }}?_emprunt_identite={{u.username}}" class="btn {% if u.username!='' %}btn-danger{% else %} btn-default {% endif %}" title="{% if u.username=='' %}Login inexistant{% else %}emprunter cet identité{% endif %}" {% if u.username=='' %}disabled="disabled"{% endif %}><i class="fa fa-user-secret"></i></a>
+                                        {% endif %}    
+                                    {% else %}
+                                        <a role="button" href="{{ path('conseiller_default_index') }}?_emprunt_identite={{u.username}}" class="btn {% if u.username!='' %}btn-danger{% else %} btn-default {% endif %}" title="{% if u.username=='' %}Login inexistant{% else %}emprunter cet identité{% endif %}" {% if u.username=='' %}disabled="disabled"{% endif %}><i class="fa fa-user-secret"></i></a>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+         {% if ajax==false %} 
+            </div>
+        </div> 
+     {% endif %}
+{% endblock %}
+{% block javascripts %}
+    {{parent()}}
+    <script src="{{ asset('js/vendor/list.min.js') }}"></script>
+    <script src="{{ asset('js/admin/secretUser.js') }}"></script>
+{% endblock%}

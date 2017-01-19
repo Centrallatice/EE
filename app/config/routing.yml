@@ -1,3 +1,17 @@
-app:
-    resource: "@AppBundle/Controller/"
+eleve:
+    resource: "@EleveBundle/Controller/"
     type:     annotation
+    prefix:   /
+
+user:
+    resource: "@UserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+    
+kms_froala_editor:
+    resource: "@KMSFroalaEditorBundle/Resources/config/routing.yml"
+    prefix:   /froalaeditor
+    
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+        
