@@ -1,0 +1,89 @@
+input[type=text][readonly="readonly"]{
+    color: rgba(0, 0, 0, 9);
+}
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+    margin: 8px 0 0 0;
+}
+label.active,.input-field label.active {
+    font-size: 1rem;
+    -webkit-transform: translateY(-90%);
+    transform: translateY(-90%);
+}
+h2{
+    font-size: 1.6rem;
+    margin: 0;
+    padding-top:15px;
+}
+.radio-container .radio:first-child [type="radio"]:checked+label:after{
+    background-color: red;
+    border: 2px solid red;
+}
+.radio-container .radio:first-child [type="radio"]:checked+label{
+    color:red;
+}
+.radio-container .radio:nth-child(2) [type="radio"]:checked+label:after{
+    background-color: orange;
+    border: 2px solid orange;
+}
+.radio-container .radio:nth-child(2) [type="radio"]:checked+label{
+    color: orange;
+}
+.radio-container .radio:nth-child(3) [type="radio"]:checked+label:after{
+    background-color: #0277bd;
+    border: 2px solid #0277bd;
+}
+.radio-container .radio:nth-child(3) [type="radio"]:checked+label{
+    color: #0277bd;
+}
+.radio-container .radio:nth-child(4) [type="radio"]:checked+label:after{
+    background-color: #4CAF50;
+    border: 2px solid #4CAF50;
+}
+.radio-container .radio:nth-child(4) [type="radio"]:checked+label{
+    color: #4CAF50;
+}
+.row .col.sousTitreQuestion{
+    padding-top:10px;
+    padding-left:30px;
+    color:#26a69a;
+} 
+.containerTextarea{
+    margin-top:20px;
+}
+.containerTextarea label{
+    color:black;
+    font-size: 1rem;
+}
+.row .col.radio-container{
+    padding-left:50px;
+    margin-top:10px;
+}
+.row .col.radio-container > label{
+    color:black;
+    font-size: 1rem;
+}
+.row .col.radio-container > div{
+    margin-top:10px;
+    padding-left:20px;
+}
+.row .col.radio-container .radio label{
+    font-size: 0.9rem;
+    color: #9e9e9e;
+}
+.carousel.carousel-slider{
+    height: 700px;
+}
+.carousel .carousel-item{
+    overflow-y: scroll;
+}
+.row .col.radio-container .errorInfo{
+    display:none
+}
+.row .col.radio-container.error-not-filled .errorInfo{
+    display:block;
+    color:red;
+}
+.row .col.radio-container.error-not-filled label,
+.row .col.radio-container.error-not-filled .radio label{
+    color:red;
+}

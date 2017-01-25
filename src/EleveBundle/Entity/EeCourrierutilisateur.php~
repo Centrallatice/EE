@@ -1,0 +1,40 @@
+<?php
+
+namespace EleveBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EeCourrierutilisateur
+ *
+ * @ORM\Table(name="EE_CourrierUtilisateur")
+ * @ORM\Entity
+ */
+class EeCourrierutilisateur
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="identifiant", type="string", length=50, nullable=false)
+     */
+    private $identifiant;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomService", type="string", length=255, nullable=false)
+     */
+    private $nomservice;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}
+

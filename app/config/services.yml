@@ -1,0 +1,13 @@
+services:
+    integer_encoder:
+        class: EleveBundle\Service\IntegerEncoder
+    services.filtre_marque:
+        class:  EleveBundle\Service\FilterByMarqueService
+        arguments: ["@doctrine.orm.entity_manager","@service_container"]
+    services.messagerie:
+        class:  EleveBundle\Service\MessagerieService
+        arguments: ["@doctrine.orm.entity_manager","@service_container","@security.token_storage"]
+    app.form_login_authenticator:
+        class: EleveBundle\Security\FormLoginAuthenticator
+        arguments: ["@router", "@security.password_encoder","@service_container"]
+    

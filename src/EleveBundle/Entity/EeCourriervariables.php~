@@ -1,0 +1,47 @@
+<?php
+
+namespace EleveBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EeCourriervariables
+ *
+ * @ORM\Table(name="EE_CourrierVariables")
+ * @ORM\Entity
+ */
+class EeCourriervariables
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="libelle", type="text", length=-1, nullable=true)
+     */
+    private $libelle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="variable_courrier", type="text", length=-1, nullable=true)
+     */
+    private $variableCourrier;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="variable_BDD", type="text", length=-1, nullable=true)
+     */
+    private $variableBdd;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}
+

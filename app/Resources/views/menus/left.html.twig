@@ -1,0 +1,57 @@
+<ul class="collapsible side-nav fixed" data-collapsible="accordion" id="nav-mobile">
+    <li class="logo">
+        <a id="logo-container" class="brand-logo text-center">
+            <img src="{{ app.request.schemeAndHttpHost ~ app.request.baseUrl }}/../public/{{marque}}/img/logonly.png" class='img img-responsive center-align' alt="Logo" />
+            <span class="logoTitle">{{nomMarque}}</span>
+        </a>
+    </li>
+    <li>
+        <div class="collapsible-header waves-effect waves-teal">
+            <a href="{{path('eleve_default_index')}}"><i class="material-icons">home</i> Accueil</a>
+        </div>
+    </li>
+    <li>
+        <div class="collapsible-header collapsible waves-effect waves-teal {#{% if app.request.get('_route') in ['admin_article_new','admin_article_index','admin_article_show','admin_article_edit'] %}active{% endif %}#}">
+            <i class="large material-icons">account_box</i> Mon espace
+        </div>
+        <div {#{% if app.request.get('_route') in ['admin_article_new','admin_article_index','admin_article_edit','admin_article_show'] %}style='display:block'{% endif %}#} class="collapsible-body">
+            <ul>
+                <li class="{#{% if app.request.get('_route') == 'admin_article_new' %}active{% endif%}#}">
+{#                    <a href="{{path('eleve_default_index')}}"><i class="material-icons">mail_outline</i> Messagerie</a>#}
+                </li>
+            </ul>
+        </div>
+    </li>
+    {#
+    <li>
+        <div class="collapsible-header collapsible waves-effect waves-teal {% if app.request.get('_route') in ['admin_category_new','admin_category_index','admin_category_show','admin_category_edit'] %}active{% endif %}">
+            <i class="material-icons">folder</i> Catégories
+        </div>
+        <div {% if app.request.get('_route') in ['admin_category_new','admin_category_index','admin_category_show','admin_category_edit'] %}style='display:block'{% endif %} class="collapsible-body">
+            <ul>
+                <li class="{% if app.request.get('_route') == 'admin_category_new' %}active{% endif%}">
+                    <a href="{{path('admin_category_new')}}">Créer une catégorie</a>
+                </li>
+                <li class="{% if app.request.get('_route') == 'admin_category_index' %}active{% endif%}">
+                    <a href="{{path('admin_category_index')}}">Gérer les catégories</a>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li>
+        <div class="collapsible-header collapsible waves-effect waves-teal {% if app.request.get('_route')|slice(0,12) == 'admin_module' %}active{% endif %}">
+            <i class="material-icons">extension</i> Modules
+        </div>
+        <div {% if app.request.get('_route')|slice(0,12) == 'admin_module' %}style='display:block'{% endif %} class="collapsible-body">
+            <ul>
+                <li class="{% if app.request.get('_route') == 'admin_module_new' %}active{% endif%}">
+                    <a href="{{path('admin_module_new')}}">Créer un Module</a>
+                </li>
+                <li class="{% if app.request.get('_route') == 'admin_module_index' %}active{% endif%}">
+                    <a href="{{path('admin_module_index')}}">Gérer les modules</a>
+                </li>
+            </ul>
+        </div>
+    </li>#}
+    
+</ul>

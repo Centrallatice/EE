@@ -1,0 +1,168 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Questionnairesatisfaction</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ questionnaireSatisfaction.id }}</td>
+            </tr>
+            <tr>
+                <th>Nomorganisme</th>
+                <td>{{ questionnaireSatisfaction.nomOrganisme }}</td>
+            </tr>
+            <tr>
+                <th>Formation</th>
+                <td>{{ questionnaireSatisfaction.formation }}</td>
+            </tr>
+            <tr>
+                <th>Periodedebut</th>
+                <td>{% if questionnaireSatisfaction.periodeDebut %}{{ questionnaireSatisfaction.periodeDebut|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Periodefin</th>
+                <td>{% if questionnaireSatisfaction.periodeFin %}{{ questionnaireSatisfaction.periodeFin|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dureeformation</th>
+                <td>{{ questionnaireSatisfaction.dureeFormation }}</td>
+            </tr>
+            <tr>
+                <th>Offresatisfaitorganisme</th>
+                <td>{{ questionnaireSatisfaction.offreSatisfaitOrganisme }}</td>
+            </tr>
+            <tr>
+                <th>Offresatisfaitformation</th>
+                <td>{{ questionnaireSatisfaction.offreSatisfaitFormation }}</td>
+            </tr>
+            <tr>
+                <th>Offrepertinenceprojet</th>
+                <td>{{ questionnaireSatisfaction.offrePertinenceProjet }}</td>
+            </tr>
+            <tr>
+                <th>Pertinenceattentesnote</th>
+                <td>{{ questionnaireSatisfaction.pertinenceAttentesNote }}</td>
+            </tr>
+            <tr>
+                <th>Offreremarque</th>
+                <td>{{ questionnaireSatisfaction.OffreRemarque }}</td>
+            </tr>
+            <tr>
+                <th>Relationechanges</th>
+                <td>{{ questionnaireSatisfaction.relationEchanges }}</td>
+            </tr>
+            <tr>
+                <th>Relationadequationcours</th>
+                <td>{{ questionnaireSatisfaction.relationAdequationCours }}</td>
+            </tr>
+            <tr>
+                <th>Relationdelaissupport</th>
+                <td>{{ questionnaireSatisfaction.relationDelaisSupport }}</td>
+            </tr>
+            <tr>
+                <th>Relationrespectdelaiscorrection</th>
+                <td>{{ questionnaireSatisfaction.relationRespectDelaisCorrection }}</td>
+            </tr>
+            <tr>
+                <th>Relationqualitecorrection</th>
+                <td>{{ questionnaireSatisfaction.relationQualiteCorrection }}</td>
+            </tr>
+            <tr>
+                <th>Remarquerelation</th>
+                <td>{{ questionnaireSatisfaction.remarqueRelation }}</td>
+            </tr>
+            <tr>
+                <th>Deroulementsupportutilises</th>
+                <td>{{ questionnaireSatisfaction.deroulementSupportUtilises }}</td>
+            </tr>
+            <tr>
+                <th>Deroulementsupportcontenu</th>
+                <td>{{ questionnaireSatisfaction.deroulementSupportContenu }}</td>
+            </tr>
+            <tr>
+                <th>Deroulementmoyencontact</th>
+                <td>{{ questionnaireSatisfaction.deroulementMoyenContact }}</td>
+            </tr>
+            <tr>
+                <th>Deroulementsuivipedagogique</th>
+                <td>{{ questionnaireSatisfaction.deroulementSuiviPedagogique }}</td>
+            </tr>
+            <tr>
+                <th>Deroulementmodeevaluation</th>
+                <td>{{ questionnaireSatisfaction.deroulementModeEvaluation }}</td>
+            </tr>
+            <tr>
+                <th>Deroulementqualitecontactprof</th>
+                <td>{{ questionnaireSatisfaction.deroulementQualiteContactProf }}</td>
+            </tr>
+            <tr>
+                <th>Deroulementqualitecontactass</th>
+                <td>{{ questionnaireSatisfaction.deroulementQualiteContactAss }}</td>
+            </tr>
+            <tr>
+                <th>Deroulementcompetencesprof</th>
+                <td>{{ questionnaireSatisfaction.deroulementCompetencesProf }}</td>
+            </tr>
+            <tr>
+                <th>Deroulementcompetencesass</th>
+                <td>{{ questionnaireSatisfaction.deroulementCompetencesAss }}</td>
+            </tr>
+            <tr>
+                <th>Deroulementremarque</th>
+                <td>{{ questionnaireSatisfaction.deroulementRemarque }}</td>
+            </tr>
+            <tr>
+                <th>Aproposnouveauappel</th>
+                <td>{% if questionnaireSatisfaction.aProposNouveauAppel %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Aproposnouveauappelcomm</th>
+                <td>{{ questionnaireSatisfaction.aProposNouveauAppelComm }}</td>
+            </tr>
+            <tr>
+                <th>Aproposrecommandation</th>
+                <td>{{ questionnaireSatisfaction.aProposRecommandation }}</td>
+            </tr>
+            <tr>
+                <th>Aproposremarque</th>
+                <td>{{ questionnaireSatisfaction.aProposRemarque }}</td>
+            </tr>
+            <tr>
+                <th>Elevenom</th>
+                <td>{{ questionnaireSatisfaction.eleveNom }}</td>
+            </tr>
+            <tr>
+                <th>Eleveprenom</th>
+                <td>{{ questionnaireSatisfaction.elevePrenom }}</td>
+            </tr>
+            <tr>
+                <th>Eleveadresse</th>
+                <td>{{ questionnaireSatisfaction.eleveAdresse }}</td>
+            </tr>
+            <tr>
+                <th>Elevetelephone</th>
+                <td>{{ questionnaireSatisfaction.eleveTelephone }}</td>
+            </tr>
+            <tr>
+                <th>Eleveportable</th>
+                <td>{{ questionnaireSatisfaction.elevePortable }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('questionnairesatisfaction_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('questionnairesatisfaction_edit', { 'id': questionnaireSatisfaction.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

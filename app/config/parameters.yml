@@ -1,5 +1,6 @@
 # This file is auto-generated during the composer install
 parameters:
+#    database_host: 192.168.0.35\bestiole
     database_host: IIS-DEV
     database_port: 1433
     database_name: EE

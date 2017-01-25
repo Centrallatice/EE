@@ -1,0 +1,279 @@
+{% extends "::root.html.twig" %}
+{% block breadcrumb %}<a class="breadcrumb" href="#!">Questionnaire de satisfaction</a>{% endblock %}
+{% block stylesheets %}
+     {{parent()}}
+     <link rel="stylesheet" href="{{ asset('css/parts/questionnaireSatisfaction.css') }}">
+{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="col s12">   
+           {{ form_start(form) }}
+                <div class="carousel carousel-slider">
+                    <div class="carousel-item" href="#one!"> 
+                        <div class="col s12 m6">   
+                            {{ form_label(form.nomOrganisme) }}
+                            {{ form_errors(form.nomOrganisme) }}
+                            {{ form_widget(form.nomOrganisme,{'attr': {'value': nomMarque}}) }}
+                        </div>
+                        <div class="col s12 m6">   
+                            {{ form_label(form.formation) }}
+                            {{ form_errors(form.formation) }}
+                            {{ form_widget(form.formation,{'attr': {'value': descriptionFormation.formation_libelle}}) }}
+                        </div>    
+                        <div class="col s12 m6">   
+                            Période de réalisation : 
+                            <div class="input-field inline">
+                                {{ form_label(form.periodeDebut) }}
+                                {{ form_errors(form.periodeDebut) }}
+                                {{ form_widget(form.periodeDebut) }}
+                            </div>
+                            au
+                            <div class="input-field inline">
+                                {{ form_label(form.periodeFin) }}
+                                {{ form_errors(form.periodeFin) }}
+                                {{ form_widget(form.periodeFin) }}
+                            </div>
+                        </div>    
+                        <div class="col s12 m6">   
+                            <div class="input-field inline">
+                                {{ form_label(form.dureeFormation) }}
+                                {{ form_errors(form.dureeFormation) }}
+                                {{ form_widget(form.dureeFormation) }}
+                            </div>
+                            heures
+                        </div>
+                        <div class="col s12">
+                            <h2>1- Offre d'action de formation</h2>
+                        </div>
+                        <div class="col s12 sousTitreQuestion">
+                            De manière générale, êtes-vous satisfait :
+                        </div>
+                        <div class="col s12 m5 radio-container">
+                             {{ form_label(form.offreSatisfaitOrganisme) }}
+                             {{ form_errors(form.offreSatisfaitOrganisme) }}
+                             {{ form_widget(form.offreSatisfaitOrganisme) }}
+                        </div>
+                        <div class="col s12 m5 radio-container">
+                             {{ form_label(form.offreSatisfaitFormation) }}
+                             {{ form_errors(form.offreSatisfaitFormation) }}
+                             {{ form_widget(form.offreSatisfaitFormation) }}
+                        </div>
+                        <div class="col s12 sousTitreQuestion">
+                            Comment évalueriez-vous la pertinence de la formation par rapport : 
+                        </div>
+                        <div class="col s12 m5 radio-container">
+                             {{ form_label(form.offrePertinenceProjet) }}
+                             {{ form_errors(form.offrePertinenceProjet) }}
+                             {{ form_widget(form.offrePertinenceProjet) }}
+                        </div>
+                        <div class="col s12 m5 radio-container">
+                             {{ form_label(form.pertinenceAttentes) }}
+                             {{ form_errors(form.pertinenceAttentes) }}
+                             {{ form_widget(form.pertinenceAttentes) }}
+                        </div>
+                        <div class="col s12 containerTextarea">
+                             {{ form_label(form.OffreRemarque) }}
+                             {{ form_errors(form.OffreRemarque) }}
+                             {{ form_widget(form.OffreRemarque) }}
+                        </div>
+                    </div>
+                    <div class="carousel-item" href="#two!">    
+                        <div class="col s12">
+                            <h2>2- Relations avec l'organisme de formation</h2>
+                        </div>
+                        <div class="col s12 sousTitreQuestion">
+                            De manière générale, êtes-vous satisfait :
+                        </div>
+                        <div class="col s12 m5 radio-container">
+                             {{ form_label(form.relationEchanges) }}
+                             {{ form_errors(form.relationEchanges) }}
+                             {{ form_widget(form.relationEchanges) }}
+                        </div>
+                        <div class="col s12 m5 radio-container">
+                             {{ form_label(form.relationAdequationCours) }}
+                             {{ form_errors(form.relationAdequationCours) }}
+                             {{ form_widget(form.relationAdequationCours) }}
+                        </div>
+                        <div class="col s12 sousTitreQuestion">
+                            Etes-vous satisfait des délais de livraison : 
+                        </div>
+                        <div class="col s12 m5 radio-container">
+                             {{ form_label(form.relationDelaisSupport) }}
+                             {{ form_errors(form.relationDelaisSupport) }}
+                             {{ form_widget(form.relationDelaisSupport) }}
+                        </div>
+                        <div class="col s12 m5 radio-container">
+                             {{ form_label(form.relationRespectDelaisCorrection) }}
+                             {{ form_errors(form.relationRespectDelaisCorrection) }}
+                             {{ form_widget(form.relationRespectDelaisCorrection) }}
+                        </div>
+                        <div class="col s12 sousTitreQuestion">
+                            Êtes-vous satisfait de la qualité des corrections de vos devoirs ou de vos évaluations ?
+                        </div>
+                        <div class="col s12 radio-container">
+                             {{ form_label(form.relationQualiteCorrection) }}
+                             {{ form_errors(form.relationQualiteCorrection) }}
+                             {{ form_widget(form.relationQualiteCorrection) }}
+                        </div>
+                        <div class="col s12 containerTextarea">
+                             {{ form_label(form.remarqueRelation) }}
+                             {{ form_errors(form.remarqueRelation) }}
+                             {{ form_widget(form.remarqueRelation) }}
+                        </div>
+                    </div>    
+                    <div class="carousel-item" href="#three!">    
+                        <div class="col s12">
+                            <h2>3- Déroulement de l'action de formation</h2>
+                        </div>
+                        <div class="col s12 sousTitreQuestion">
+                            Êtes-vous satisfait :
+                        </div>
+                        <div class="col s12 m5 radio-container">
+                             {{ form_label(form.deroulementSupportUtilises) }}
+                             {{ form_errors(form.deroulementSupportUtilises) }}
+                             {{ form_widget(form.deroulementSupportUtilises) }}
+                        </div>
+                        <div class="col s12 m5 radio-container">
+                             {{ form_label(form.deroulementSupportContenu) }}
+                             {{ form_errors(form.deroulementSupportContenu) }}
+                             {{ form_widget(form.deroulementSupportContenu) }}
+                        </div>
+                        
+                        <div class="col s12 m5 radio-container">
+                            <div class="sousTitreQuestion">
+                                Êtes-vous satisfait par les moyens de contact proposés par l'école ? (téléphone, espace élève, courriers, emails, application ou Facebook) 
+                            </div>
+                             {{ form_label(form.deroulementMoyenContact) }}
+                             {{ form_errors(form.deroulementMoyenContact) }}
+                             {{ form_widget(form.deroulementMoyenContact) }}
+                        </div>
+                        <div class="col s12 m5 radio-container">
+                             <div class="sousTitreQuestion">
+                                Êtes-vous satisfait de votre suivi pédagogique ?  Il s'agit d'évaluer votre satisfaction quant à votre prise en considération par l'école. 
+                            </div>
+                             {{ form_label(form.deroulementSuiviPedagogique) }}
+                             {{ form_errors(form.deroulementSuiviPedagogique) }}
+                             {{ form_widget(form.deroulementSuiviPedagogique) }}
+                        </div>
+                        <div class="col s12 sousTitreQuestion">
+                            Êtes-vous satisfait des modes d'évaluation mis en place par l'école (tests, devoirs, épreuves…)?
+                        </div>
+                        <div class="col s12 radio-container">
+                             {{ form_label(form.deroulementModeEvaluation) }}
+                             {{ form_errors(form.deroulementModeEvaluation) }}
+                             {{ form_widget(form.deroulementModeEvaluation) }}
+                        </div>
+                        <div class="col s12 sousTitreQuestion">
+                            Êtes-vous satisfait de la qualité de vos contacts :
+                        </div>
+                        <div class="col s12 m5 radio-container">
+                             {{ form_label(form.deroulementQualiteContactProf) }}
+                             {{ form_errors(form.deroulementQualiteContactProf) }}
+                             {{ form_widget(form.deroulementQualiteContactProf) }}
+                        </div>
+                        <div class="col s12 m5 radio-container">
+                             {{ form_label(form.deroulementQualiteContactAss) }}
+                             {{ form_errors(form.deroulementQualiteContactAss) }}
+                             {{ form_widget(form.deroulementQualiteContactAss) }}
+                        </div>
+                        <div class="col s12 sousTitreQuestion">
+                            Êtes-vous satisfait de la compétence :
+                        </div>
+                        <div class="col s12 m5 radio-container">
+                             {{ form_label(form.deroulementCompetencesProf) }}
+                             {{ form_errors(form.deroulementCompetencesProf) }}
+                             {{ form_widget(form.deroulementCompetencesProf) }}
+                        </div>
+                        <div class="col s12 m5 radio-container">
+                             {{ form_label(form.deroulementCompetencesAss) }}
+                             {{ form_errors(form.deroulementCompetencesAss) }}
+                             {{ form_widget(form.deroulementCompetencesAss) }}
+                        </div>
+                        <div class="col s12 containerTextarea">
+                             {{ form_label(form.deroulementRemarque) }}
+                             {{ form_errors(form.deroulementRemarque) }}
+                             {{ form_widget(form.deroulementRemarque) }}
+                        </div>
+                    </div>    
+                    <div class="carousel-item" href="#four!">    
+                        <div class="col s12">
+                            <h2>4- A propos de notre organisme de formation</h2>
+                        </div>
+                        <div class="col s12 m6 radio-container">
+                            {{ form_label(form.aProposNouveauAppel) }}
+                            {{ form_errors(form.aProposNouveauAppel) }}
+                            {{ form_widget(form.aProposNouveauAppel) }}
+                        </div>
+                        <div class="col s12 m6 radio-container">
+                            {{ form_label(form.aProposRecommandation) }}
+                            {{ form_errors(form.aProposRecommandation) }}
+                            {{ form_widget(form.aProposRecommandation) }}
+                        </div>
+                        <div class="col s12 m6 radio-container">
+                            {{ form_label(form.aProposNouveauAppelComm) }}
+                            {{ form_errors(form.aProposNouveauAppelComm) }}
+                            {{ form_widget(form.aProposNouveauAppelComm) }}
+                        </div>
+                        <div class="col s12 m6 radio-container">
+                            {{ form_label(form.aProposRecommandationComm) }}
+                            {{ form_errors(form.aProposRecommandationComm) }}
+                            {{ form_widget(form.aProposRecommandationComm) }}
+                        </div>
+                        <div class="col s12 containerTextarea">
+                             {{ form_label(form.aProposRemarque) }}
+                             {{ form_errors(form.aProposRemarque) }}
+                             {{ form_widget(form.aProposRemarque) }}
+                        </div>
+                    </div>    
+                </div> 
+                <div class="col s12 center-align">
+                    <button type="button" id="btn-slider" class="btn waves-effect green">Suivant <i class="material-icons right">skip_next</i></button>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+     {{parent()}}
+    <script type="text/javascript">
+         var i=1;
+         $('.carousel.carousel-slider').carousel({
+             full_width: true,
+             no_wrap: true,
+             indicators: false
+         });
+         $('#btn-slider').on("click",function(){
+             var error = false;
+             if(i<4){
+                 $('.carousel-item:nth-child('+i+') .radio-container').each(function(){
+                    var checked=-1;
+                    $(this).find('input[type=radio]:checked').each(function(){
+                        checked=$(this).val();
+                    });
+                    if(checked==-1){
+                        if($(this).hasClass("error-not-filled")==false){
+                            $(this).addClass("error-not-filled");
+                            $('<div class="errorInfo">Ce champ est obligatoire</div>').appendTo(this);
+                        }
+                        error = true;
+                    }
+                    else{
+                        $(this).removeClass("error-not-filled");
+                        $(this).find("errorInfo").remove();
+                    }
+                 });
+             }
+             if(!error){
+                i++;
+                $('.carousel.carousel-slider').carousel('next');
+                if(i==4){
+                    $('#btn-slider').off("click");
+                    $('#btn-slider').attr("type","submit");
+                    $('#btn-slider').on("click",function(){
+                        $('form[name=elevebundle_questionnairesatisfaction]').submit();
+                    });
+                }
+             }
+         });
+    </script>
+{% endblock %}

@@ -1,1 +1,65 @@
-Hello World!
+{% extends "::root.html.twig" %}
+{% block body %}
+    <div class="row rowhome">
+        <div class="col s12 ms6 m4 l3">
+            <div class="card">
+                <div class="valign-wrapper card-image waves-effect waves-block waves-light">
+                    <i class="valign center-align large material-icons">account_box</i>
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Mon profil<i class="material-icons right">more_vert</i></span>
+                    <p><a href="#">Accèder à cette page</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Mon profil<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 ms6 m4 l3">
+            <div class="card">
+                <div class="valign-wrapper card-image waves-effect waves-block waves-light">
+                    <i class="valign center-align large material-icons">euro_symbol</i>
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Mes paiements<i class="material-icons right">more_vert</i></span>
+                    <p><a href="#">Accèder à cette page</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Mes paiements<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 ms6 m4 l3">
+            <div class="card">
+                <div class="valign-wrapper card-image waves-effect waves-block waves-light">
+                    <i class="valign center-align large material-icons">library_books</i>
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Mes devoirs<i class="material-icons right">more_vert</i></span>
+                    <p><a href="#">Accèder à cette page</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Mes devoirs<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 ms6 m4 l3">
+            <div class="card">
+                <div class="valign-wrapper card-image waves-effect waves-block waves-light">
+                    <i class="valign center-align large material-icons">work</i>
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Stage et emploi<i class="material-icons right">more_vert</i></span>
+                    <p><a href="#">Accèder à cette page</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Stage et emploi<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

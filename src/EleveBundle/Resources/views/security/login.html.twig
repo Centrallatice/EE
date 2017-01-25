@@ -1,0 +1,54 @@
+{% extends "::root.html.twig" %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/blocks/login.css') }}">
+{% endblock %}
+{% block bodyclass %}hold-transition login-page{% endblock %}
+{% block body %}
+        <div class="col s12 m10 offset-m1 l6 offset-l3 animated fadeIn logocontainer">
+            <div class="login-title col s12">
+                Bienvenue sur l'espace élève 
+            </div>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <center><strong>Vous êtes déja connecté</strong></center>
+            {% else %}
+            <span class="actionName reversed animated bounceInDown">Connexion</span>
+                <div class="row">
+                    
+                    <div class="col s12 m6 login-box-body">
+                        <form action="{{ path("login_check", {}) }}" method="POST" >
+                            <div class="input-field has-feedback">
+                                <input type="text" id="username" name="_username" value="{{ last_username }}" class="validate" required="required"/>
+                                <label for="username">Numéro de dossier :</label>
+                            </div>
+                            <div class="input-field has-feedback">
+                                <input type="text" id="password" name="_password" required="required" class="validate">
+                                <label for="password">Numéro d'élève :</label>
+                            </div>
+                            {% if error %}
+                                <div class="animated rubberBand alert-danger alert">
+                                    Les identifiants saisies ne sont pas corrects
+                                </div>    
+                            {% endif %}
+                            <center><button type="submit" class="btn green waves-effect waves-light" id="_submit" name="_submit"/>{{ 'security.login.submit'|trans }}</button></center>
+                        </form>
+                    </div>
+                    <div class="col s12 m6 ">
+                        
+                        <ul class="collection with-header">
+                            <li class="collection-header"><img src="{{ app.request.schemeAndHttpHost ~ app.request.baseUrl }}/../public/{{marque}}/img/header-logo.png" class='img img-responsive logo' alt="Logo" /></li>
+                            <li class="collection-item"><span>Consulter vos notes</span></li>
+                            <li class="collection-item"><span>Contacter vos professeurs</span></li>
+                            <li class="collection-item"><span>Envoyer vos devoirs</span></li>
+                            <li class="collection-item"><span>Consulter les messages de l'école</span></li>
+                            <li class="collection-item"><span>Télécharger du contenu additionnel</span></li>
+                            <li class="collection-item"><span>et bien d'autres choses encore...</span></li>
+                        </ul>
+                    </div>
+                </div>
+            {% endif %}
+    
+    </div>
+  
+{% endblock body %}
+

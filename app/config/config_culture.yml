@@ -1,0 +1,9 @@
+imports:
+    - { resource: config.yml }
+
+parameters:
+    locale: fr
+    marque: 1
+    nomMarque: Culture et Formation
+
+        

@@ -1,0 +1,21 @@
+body.nopadding{
+    background:#ebebeb;
+}
+.greenme{
+    color:green;
+}
+.redme{
+    color:red;
+}
+.nopadding{
+	padding:0;
+}
+.bloc-center{
+    margin: auto;
+}
+ul.side-nav{
+    background:#f3f3f3;
+}
+.fr-box.fr-basic{
+    margin-top: 15px;
+}

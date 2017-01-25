@@ -1,0 +1,80 @@
+{% extends "::root.html.twig" %}
+{% block title %}Accueil{% endblock %}
+{% block stylesheets %}
+     {{parent()}}
+     <link rel="stylesheet" href="{{ asset('css/parts/timeline.css') }}">
+{% endblock %}
+{% block breadcrumb %}
+    <a class="breadcrumb" href="{{ path('eleve_default_getmessages') }}">Mes Courriers</a>
+    <a class="breadcrumb" href="#!">Détail de mon ticket</a>
+{% endblock %}
+{% block body %}
+    
+    <div class="row">
+        <div class="col s12">
+            <div class="card sticky-action darken-1 card-detail-ticket">
+                
+                <div class="card-content">
+                    <p class="card-title activator grey-text text-darken-4">Ticket N° {{Ticket.idTicket}} <i class="material-icons right">history</i></p>
+                    <p>{{Ticket.contenu|raw}}</p>
+                    <p></p>
+                    <hr />
+                    <div class="valign-wrapper col s3 m5 right-align">
+                        <h5 class="small valign">État du ticket : </h5>
+                    </div>
+                    <div class="col s9 m7">
+                        {% if Ticket.etat==0 %}
+                            <p class="alert alert-warning">En cours d'affectation</p>
+                        {% elseif Ticket.etat==1%}
+                            <p class="alert alert-info">Pris en charge par le service compétent</p>
+                        {% elseif Ticket.etat==2%}
+                            <p class="alert alert-success">Résolu</p>
+                        {% endif %}
+                    </div>
+                </div>
+                    
+                <div class="card-reveal">
+                    <div class="timeline">
+                        
+                        <div class="timeline-event">
+                            <div class="timeline-content">
+                                <div class="card-content right-align">
+                                    <span class="card-title grey-text text-darken-4">Création du Ticket</span>
+                                    <p>Le {{Ticket.dateCreation|date('d/m/Y \à H:i')}}</p>
+                                </div>
+                            </div>
+                            <div class="timeline-badge orange white-text"><i class="material-icons">add</i></div>
+                        </div>
+                        {% for h in HTicket %}
+                            <div class="timeline-event">
+                                <div class="timeline-content">
+                                    <div class="card-content {% if loop.index is divisible by(2) %}right-align{%endif%}">
+                                        <span class="card-title grey-text text-darken-4">
+                                            {% if h.detailAction=="affectation" %}
+                                                Pris en charge par le service compétent
+                                            {% elseif h.detailAction=="solution" %}
+                                                Résolu
+                                            {% endif %}
+                                        </span>
+                                        <p><small>Le {{h.dateAction|date('d/m/Y \à H:i')}}</small></p>
+                                        <p>
+                                            {% if h.detailAction=="solution" %}
+                                                {{h.solution|raw|nl2br}}
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                </div>
+                                {% if h.detailAction=="affectation" %}
+                                    <div class="timeline-badge blue white-text"><i class="material-icons">compare_arrows</i></div>
+                                {% elseif h.detailAction=="solution" %}
+                                    <div class="timeline-badge green white-text"><i class="material-icons">done</i></div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+{% endblock %}

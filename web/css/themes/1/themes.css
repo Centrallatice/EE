@@ -1,0 +1,37 @@
+nav,footer.page-footer{
+    background-color: #c4007a;
+}
+.rowhome .card .card-image i.material-icons{
+    color: #c4007a;
+}
+.dropdown-content li>a, .dropdown-content li>span {
+    font-size: 16px;
+    color: #c4007a;
+}
+a.msgLink i.material-icons{
+    float: left;
+}
+a.msgLink span.badge{
+    position: absolute;
+    top:5px;
+    font-weight: bold;
+    margin-left:-5px;
+    min-width: 1.5rem;
+    padding:0 2px !important;
+    border-radius: 9px;
+}
+nav li.msgContainer{
+    padding:0 10px;
+}
+ul.side-nav li.logo a.brand-logo img.img-responsive{
+    margin: auto;
+}
+ul.side-nav li.logo a#logo-container{
+    line-height: 40px;
+    color:#a2a2a2;
+    font-size: 18px;
+}
+.dropdown-content li.small>a, .dropdown-content li.small>span {
+    line-height: 22px;
+    padding: 7px 16px;
+}
