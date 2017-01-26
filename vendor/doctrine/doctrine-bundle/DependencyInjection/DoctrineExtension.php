@@ -87,17 +87,19 @@ class DoctrineExtension extends AbstractDoctrineExtension
             $this->ormLoad($config['orm'], $container);
         }
 
-        $this->addClassesToCompile(array(
-            'Doctrine\\Common\\Annotations\\DocLexer',
-            'Doctrine\\Common\\Annotations\\FileCacheReader',
-            'Doctrine\\Common\\Annotations\\PhpParser',
-            'Doctrine\\Common\\Annotations\\Reader',
-            'Doctrine\\Common\\Lexer',
-            'Doctrine\\Common\\Persistence\\ConnectionRegistry',
-            'Doctrine\\Common\\Persistence\\Proxy',
-            'Doctrine\\Common\\Util\\ClassUtils',
-            'Doctrine\\Bundle\\DoctrineBundle\\Registry',
-        ));
+        if (PHP_VERSION_ID < 70000) {
+            $this->addClassesToCompile(array(
+                'Doctrine\\Common\\Annotations\\DocLexer',
+                'Doctrine\\Common\\Annotations\\FileCacheReader',
+                'Doctrine\\Common\\Annotations\\PhpParser',
+                'Doctrine\\Common\\Annotations\\Reader',
+                'Doctrine\\Common\\Lexer',
+                'Doctrine\\Common\\Persistence\\ConnectionRegistry',
+                'Doctrine\\Common\\Persistence\\Proxy',
+                'Doctrine\\Common\\Util\\ClassUtils',
+                'Doctrine\\Bundle\\DoctrineBundle\\Registry',
+            ));
+        }
     }
 
     /**
@@ -472,7 +474,11 @@ class DoctrineExtension extends AbstractDoctrineExtension
         if (version_compare(Version::VERSION, "2.5.0-DEV") >= 0) {
             $listenerId = sprintf('doctrine.orm.%s_listeners.attach_entity_listeners', $entityManager['name']);
             $listenerDef = $container->setDefinition($listenerId, new Definition('%doctrine.orm.listeners.attach_entity_listeners.class%'));
-            $listenerDef->addTag('doctrine.event_listener', array('event' => 'loadClassMetadata'));
+            $listenerTagParams = array('event' => 'loadClassMetadata');
+            if (isset($entityManager['connection'])) {
+                $listenerTagParams['connection'] = $entityManager['connection'];
+            }
+            $listenerDef->addTag('doctrine.event_listener', $listenerTagParams);
         }
 
         if (isset($entityManager['second_level_cache'])) {

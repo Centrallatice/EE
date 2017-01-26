@@ -1,6 +1,18 @@
 nav,footer.page-footer{
     background-color: #c4007a;
 }
+footer{
+    position:fixed;
+    bottom:0;
+    width:100%;
+}
+footer.page-footer{
+    padding-top:0;
+}
+footer.page-footer .footer-copyright{
+    color: rgba(255, 255, 255, 1);
+    padding-left:20px;
+}
 .rowhome .card .card-image i.material-icons{
     color: #c4007a;
 }
@@ -34,4 +46,71 @@ ul.side-nav li.logo a#logo-container{
 .dropdown-content li.small>a, .dropdown-content li.small>span {
     line-height: 22px;
     padding: 7px 16px;
+}
+.side-nav.fixed .collapsible-header.collapsible.active,
+.side-nav.fixed .collapsible-header.active a,
+.side-nav li>a>i,
+.side-nav li>a>[class^="mdi-"],
+.side-nav li>a>[class*="mdi-"]{
+    color:#c4007a;
+}
+
+
+.side-nav .collapsible-body>ul:not(.collapsible)>li.active a,
+.side-nav.fixed .collapsible-body>ul:not(.collapsible)>li.active a{
+   color:rgba(0, 0, 0, 0.87);
+}
+.side-nav .collapsible-body>ul:not(.collapsible)>li:hover a,
+.side-nav .collapsible-body>ul:not(.collapsible)>li.active:hover a{
+    -webkit-animation:animation-menu-gauche-texte 0.3s linear;
+    font-weight: 700;
+    color: rgba(196,0,122,1);
+}
+
+.side-nav .collapsible-body>ul:not(.collapsible)>li:hover a i,
+.side-nav .collapsible-body>ul:not(.collapsible)>li.active:hover a i{
+    -webkit-animation:animation-menu-gauche-texte-i 0.3s linear;
+    color: rgba(196,0,122,1);
+}
+.side-nav .collapsible-body>ul:not(.collapsible)>li.active{
+    border-left:2px solid rgba(196,0,122,1);
+}
+@keyframes animation-menu-gauche {
+    from {
+        margin-top:15px;
+        height:20px;
+        margin-right: 0px;
+        border-right: 16px solid rgba(0,0,0,0.47);
+        border-top: 16px solid transparent;
+        border-left: 0 dotted;
+        border-bottom: 16px solid transparent;
+    }
+    to {
+        margin-top:0px;
+        height:60px;
+        margin-right: -25px;
+        border-right: 16px solid rgba(196,0,122,1);
+        border-left: 16px solid rgba(196,0,122,1);
+        border-top: 16px solid rgba(196,0,122,1);
+        border-bottom: 16px solid rgba(196,0,122,1);
+    }
+}
+
+@keyframes animation-menu-gauche-texte{
+    from {
+        font-weight:300;
+        color: rgba(0, 0, 0, 0.87);
+    }
+    to {
+        font-weight:700;
+        color: rgba(196,0,122,1);
+    }
+}
+@keyframes animation-menu-gauche-texte-i{
+    from {
+        color: rgba(0, 0, 0, 0.87);
+    }
+    to {
+        color: rgba(196,0,122,1);
+    }
 }

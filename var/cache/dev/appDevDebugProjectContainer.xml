@@ -5,7 +5,7 @@
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
     <parameter key="kernel.name">app</parameter>
-    <parameter key="kernel.cache_dir">C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev</parameter>
+    <parameter key="kernel.cache_dir">C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev</parameter>
     <parameter key="kernel.logs_dir">C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\logs</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
@@ -134,14 +134,14 @@
       <parameter>twig</parameter>
     </parameter>
     <parameter key="validator.mapping.cache.prefix"></parameter>
-    <parameter key="validator.mapping.cache.file">C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev/validation.php</parameter>
+    <parameter key="validator.mapping.cache.file">C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev/validation.php</parameter>
     <parameter key="validator.translation_domain">validators</parameter>
     <parameter key="translator.logging">true</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_master_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev/profiler</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
-    <parameter key="debug.container.dump">C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev/appDevDebugProjectContainer.xml</parameter>
+    <parameter key="debug.container.dump">C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev/appDevDebugProjectContainer.xml</parameter>
     <parameter key="router.options.generator_class">Symfony\Component\Routing\Generator\UrlGenerator</parameter>
     <parameter key="router.options.generator_base_class">Symfony\Component\Routing\Generator\UrlGenerator</parameter>
     <parameter key="router.options.generator_dumper_class">Symfony\Component\Routing\Generator\Dumper\PhpGeneratorDumper</parameter>
@@ -153,7 +153,7 @@
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
-    <parameter key="router.resource">C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev/assetic/routing.yml</parameter>
+    <parameter key="router.resource">C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev/assetic/routing.yml</parameter>
     <parameter key="router.cache_class_prefix">appDevDebugProjectContainer</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
@@ -225,7 +225,7 @@
     <parameter key="swiftmailer.mailer.default.transport.smtp.timeout">30</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.source_ip">null</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.local_domain">null</parameter>
-    <parameter key="swiftmailer.spool.default.memory.path">C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev/swiftmailer/spool/default</parameter>
+    <parameter key="swiftmailer.spool.default.memory.path">C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev/swiftmailer/spool/default</parameter>
     <parameter key="swiftmailer.mailer.default.spool.enabled">true</parameter>
     <parameter key="swiftmailer.mailer.default.plugin.impersonate">null</parameter>
     <parameter key="swiftmailer.mailer.default.single_address">null</parameter>
@@ -290,11 +290,13 @@
     <parameter key="doctrine.class">Doctrine\Bundle\DoctrineBundle\Registry</parameter>
     <parameter key="doctrine.entity_managers" type="collection">
       <parameter key="main">doctrine.orm.main_entity_manager</parameter>
+      <parameter key="datas_fr">doctrine.orm.datas_fr_entity_manager</parameter>
     </parameter>
     <parameter key="doctrine.default_entity_manager">main</parameter>
     <parameter key="doctrine.dbal.connection_factory.types" type="collection"/>
     <parameter key="doctrine.connections" type="collection">
       <parameter key="main">doctrine.dbal.main_connection</parameter>
+      <parameter key="datas_fr">doctrine.dbal.datas_fr_connection</parameter>
     </parameter>
     <parameter key="doctrine.default_connection">main</parameter>
     <parameter key="doctrine.orm.configuration.class">Doctrine\ORM\Configuration</parameter>
@@ -343,7 +345,7 @@
     <parameter key="doctrine.orm.second_level_cache.cache_configuration.class">Doctrine\ORM\Cache\CacheConfiguration</parameter>
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="sensio_framework_extra.view.guesser.class">Sensio\Bundle\FrameworkExtraBundle\Templating\TemplateGuesser</parameter>
     <parameter key="sensio_framework_extra.controller.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener</parameter>
@@ -369,7 +371,7 @@
     <parameter key="assetic.worker.cache_busting.class">Assetic\Factory\Worker\CacheBustingWorker</parameter>
     <parameter key="assetic.value_supplier.class">Symfony\Bundle\AsseticBundle\DefaultValueSupplier</parameter>
     <parameter key="assetic.node.paths" type="collection"/>
-    <parameter key="assetic.cache_dir">C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev/assetic</parameter>
+    <parameter key="assetic.cache_dir">C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev/assetic</parameter>
     <parameter key="assetic.bundles" type="collection"/>
     <parameter key="assetic.twig_extension.class">Symfony\Bundle\AsseticBundle\Twig\AsseticExtension</parameter>
     <parameter key="assetic.twig_formula_loader.class">Assetic\Extension\Twig\TwigFormulaLoader</parameter>
@@ -525,10 +527,6 @@
   </parameters>
   <services>
     <service id="integer_encoder" class="EleveBundle\Service\IntegerEncoder"/>
-    <service id="services.filtre_marque" class="EleveBundle\Service\FilterByMarqueService">
-      <argument type="service" id="doctrine.orm.main_entity_manager"/>
-      <argument type="service" id="service_container"/>
-    </service>
     <service id="services.messagerie" class="EleveBundle\Service\MessagerieService">
       <argument type="service" id="doctrine.orm.main_entity_manager"/>
       <argument type="service" id="service_container"/>
@@ -538,6 +536,7 @@
       <argument type="service" id="router"/>
       <argument type="service" id="security.password_encoder"/>
       <argument type="service" id="service_container"/>
+      <argument type="service" id="doctrine.orm.main_entity_manager"/>
     </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
@@ -598,15 +597,15 @@
           <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer" public="false">
             <tag name="kernel.cache_warmer"/>
             <argument type="service" id="validator.builder"/>
-            <argument>C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev/validation.php</argument>
+            <argument>C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev/validation.php</argument>
             <argument type="service">
               <service class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
                 <tag name="cache.pool"/>
                 <tag name="cache.pool" clearer="cache.default_clearer"/>
                 <argument>z4K3Ttwe+1</argument>
                 <argument>0</argument>
-                <argument>qYVAyjcDS5vxH2CfUjCrx0</argument>
-                <argument>C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev/pools</argument>
+                <argument>ZpPKf8o20sBfnzmf70Xv09</argument>
+                <argument>C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev/pools</argument>
                 <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
                 <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
               </service>
@@ -623,7 +622,7 @@
           <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\AnnotationsCacheWarmer" public="false">
             <tag name="kernel.cache_warmer"/>
             <argument type="service" id="annotations.reader"/>
-            <argument>C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev/annotations.php</argument>
+            <argument>C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev/annotations.php</argument>
             <argument type="service" id="cache.annotations"/>
           </service>
         </argument>
@@ -773,7 +772,7 @@
           <tag name="monolog.logger" channel="cache"/>
           <argument>Bf-FsRDegu</argument>
           <argument>null</argument>
-          <argument>qYVAyjcDS5vxH2CfUjCrx0</argument>
+          <argument>ZpPKf8o20sBfnzmf70Xv09</argument>
           <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
           <factory class="Symfony\Component\PropertyAccess\PropertyAccessor" method="createCache"/>
         </service>
@@ -784,7 +783,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>+2pUqznLu1</argument>
       <argument>0</argument>
-      <argument>C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev/pools</argument>
+      <argument>C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev/pools</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -794,8 +793,8 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>0tBe5FdYue</argument>
       <argument>0</argument>
-      <argument>qYVAyjcDS5vxH2CfUjCrx0</argument>
-      <argument>C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev/pools</argument>
+      <argument>ZpPKf8o20sBfnzmf70Xv09</argument>
+      <argument>C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -804,8 +803,8 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>ABlOPskCaO</argument>
       <argument>0</argument>
-      <argument>qYVAyjcDS5vxH2CfUjCrx0</argument>
-      <argument>C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev/pools</argument>
+      <argument>ZpPKf8o20sBfnzmf70Xv09</argument>
+      <argument>C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -863,7 +862,7 @@
         </argument>
       </argument>
       <argument type="collection">
-        <argument key="cache_dir">C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev/translations</argument>
+        <argument key="cache_dir">C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev/translations</argument>
         <argument key="debug">true</argument>
         <argument key="resource_files" type="collection">
           <argument key="af" type="collection">
@@ -1539,7 +1538,7 @@
     <service id="templating.filename_parser" class="Symfony\Bundle\FrameworkBundle\Templating\TemplateFilenameParser"/>
     <service id="templating.locator" class="Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator" public="false">
       <argument type="service" id="file_locator"/>
-      <argument>C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev</argument>
+      <argument>C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev</argument>
     </service>
     <service id="validator" class="Symfony\Component\Validator\Validator\ValidatorInterface">
       <factory service="validator.builder" method="getValidator"/>
@@ -1601,7 +1600,7 @@
       <tag name="monolog.logger" channel="profiler"/>
       <argument type="service">
         <service class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage" public="false">
-          <argument>file:C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev/profiler</argument>
+          <argument>file:C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev/profiler</argument>
         </service>
       </argument>
       <argument type="service" id="monolog.logger.profiler" on-invalid="null"/>
@@ -1692,6 +1691,10 @@
             <call method="addLogger">
               <argument>main</argument>
               <argument type="service" id="doctrine.dbal.logger.profiling.main"/>
+            </call>
+            <call method="addLogger">
+              <argument>datas_fr</argument>
+              <argument type="service" id="doctrine.dbal.logger.profiling.datas_fr"/>
             </call>
           </service>
         </argument>
@@ -2080,7 +2083,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>588890cde18532.08635122</argument>
+            <argument>588a20419d67f5.68853071</argument>
           </service>
         </argument>
       </argument>
@@ -2203,7 +2206,7 @@
     </service>
     <service id="security.user.provider.concrete.main" class="Symfony\Bridge\Doctrine\Security\User\EntityUserProvider" public="false">
       <argument type="service" id="doctrine"/>
-      <argument>EleveBundle\Entity\Eleve</argument>
+      <argument>EleveBundle\Entity\EntityMain\Eleve</argument>
       <argument>username</argument>
       <argument>null</argument>
     </service>
@@ -2397,7 +2400,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>588890cde18532.08635122</argument>
+            <argument>588a20419d67f5.68853071</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2831,6 +2834,11 @@
     <service id="swiftmailer.mailer.default.plugin.messagelogger" class="Swift_Plugins_MessageLogger">
       <tag name="swiftmailer.default.plugin"/>
     </service>
+    <service id="doctrine.dbal.logger" class="Symfony\Bridge\Doctrine\Logger\DbalLogger" public="false">
+      <tag name="monolog.logger" channel="doctrine"/>
+      <argument type="service" id="monolog.logger.doctrine" on-invalid="null"/>
+      <argument type="service" id="debug.stopwatch" on-invalid="null"/>
+    </service>
     <service id="doctrine.dbal.connection_factory" class="Doctrine\Bundle\DoctrineBundle\ConnectionFactory">
       <argument type="collection"/>
     </service>
@@ -2838,9 +2846,11 @@
       <argument type="service" id="service_container"/>
       <argument type="collection">
         <argument key="main">doctrine.dbal.main_connection</argument>
+        <argument key="datas_fr">doctrine.dbal.datas_fr_connection</argument>
       </argument>
       <argument type="collection">
         <argument key="main">doctrine.orm.main_entity_manager</argument>
+        <argument key="datas_fr">doctrine.orm.datas_fr_entity_manager</argument>
       </argument>
       <argument>main</argument>
       <argument>main</argument>
@@ -2866,13 +2876,7 @@
             <argument type="service">
               <service class="Doctrine\DBAL\Logging\LoggerChain" public="false">
                 <call method="addLogger">
-                  <argument type="service">
-                    <service class="Symfony\Bridge\Doctrine\Logger\DbalLogger" public="false">
-                      <tag name="monolog.logger" channel="doctrine"/>
-                      <argument type="service" id="monolog.logger.doctrine" on-invalid="null"/>
-                      <argument type="service" id="debug.stopwatch" on-invalid="null"/>
-                    </service>
-                  </argument>
+                  <argument type="service" id="doctrine.dbal.logger"/>
                 </call>
                 <call method="addLogger">
                   <argument type="service" id="doctrine.dbal.logger.profiling.main"/>
@@ -2896,6 +2900,51 @@
       <argument type="collection"/>
       <factory service="doctrine.dbal.connection_factory" method="createConnection"/>
     </service>
+    <service id="doctrine.dbal.logger.profiling.datas_fr" class="Doctrine\DBAL\Logging\DebugStack" public="false"/>
+    <service id="doctrine.dbal.datas_fr_connection" class="Doctrine\DBAL\Connection">
+      <argument type="collection">
+        <argument key="driver">pdo_sqlsrv</argument>
+        <argument key="host">IIS-DEV</argument>
+        <argument key="dbname">datas_fr</argument>
+        <argument key="user">sa</argument>
+        <argument key="password">cu0707_TMSC</argument>
+        <argument key="charset">UTF-8</argument>
+        <argument key="port">null</argument>
+        <argument key="driverOptions" type="collection">
+          <argument key="1002">SET NAMES 'UTF8'</argument>
+        </argument>
+        <argument key="defaultTableOptions" type="collection"/>
+      </argument>
+      <argument type="service">
+        <service class="Doctrine\DBAL\Configuration" public="false">
+          <call method="setSQLLogger">
+            <argument type="service">
+              <service class="Doctrine\DBAL\Logging\LoggerChain" public="false">
+                <call method="addLogger">
+                  <argument type="service" id="doctrine.dbal.logger"/>
+                </call>
+                <call method="addLogger">
+                  <argument type="service" id="doctrine.dbal.logger.profiling.datas_fr"/>
+                </call>
+              </service>
+            </argument>
+          </call>
+        </service>
+      </argument>
+      <argument type="service">
+        <service class="Symfony\Bridge\Doctrine\ContainerAwareEventManager" public="false">
+          <argument type="service" id="service_container"/>
+          <call method="addEventListener">
+            <argument type="collection">
+              <argument>loadClassMetadata</argument>
+            </argument>
+            <argument type="service" id="doctrine.orm.datas_fr_listeners.attach_entity_listeners"/>
+          </call>
+        </service>
+      </argument>
+      <argument type="collection"/>
+      <factory service="doctrine.dbal.connection_factory" method="createConnection"/>
+    </service>
     <service id="form.type_guesser.doctrine" class="Symfony\Bridge\Doctrine\Form\DoctrineOrmTypeGuesser">
       <tag name="form.type_guesser"/>
       <argument type="service" id="doctrine"/>
@@ -2912,6 +2961,8 @@
       <tag name="validator.initializer"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="doctrine.orm.naming_strategy.underscore" class="Doctrine\ORM\Mapping\UnderscoreNamingStrategy" public="false"/>
+    <service id="doctrine.orm.quote_strategy.default" class="Doctrine\ORM\Mapping\DefaultQuoteStrategy" public="false"/>
     <service id="doctrine_cache.providers.doctrine.orm.main_metadata_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
         <argument>sf2orm_main_b49e4f903aa5ec28a3a307e28b2a19a60cc6434b25508b43f4f96a6da7f1486e</argument>
@@ -2931,7 +2982,7 @@
       <argument type="service" id="service_container"/>
     </service>
     <service id="doctrine.orm.main_listeners.attach_entity_listeners" class="Doctrine\ORM\Tools\AttachEntityListenersListener">
-      <tag name="doctrine.event_listener" event="loadClassMetadata"/>
+      <tag name="doctrine.event_listener" event="loadClassMetadata" connection="main"/>
     </service>
     <service id="doctrine.orm.main_manager_configurator" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator">
       <argument type="collection"/>
@@ -2963,7 +3014,7 @@
                     <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
                       <argument type="service" id="annotation_reader"/>
                       <argument type="collection">
-                        <argument>C:\Users\sylvain.dupont\Desktop\Projets Web\EE\src\EleveBundle\Entity</argument>
+                        <argument>C:\Users\sylvain.dupont\Desktop\Projets Web\EE\src\EleveBundle\Entity\EntityMain</argument>
                       </argument>
                     </service>
                   </argument>
@@ -2973,7 +3024,7 @@
             </argument>
           </call>
           <call method="setProxyDir">
-            <argument>C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev/doctrine/orm/Proxies</argument>
+            <argument>C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev/doctrine/orm/Proxies</argument>
           </call>
           <call method="setProxyNamespace">
             <argument>Proxies</argument>
@@ -2988,17 +3039,17 @@
             <argument>Doctrine\ORM\EntityRepository</argument>
           </call>
           <call method="setNamingStrategy">
-            <argument type="service">
-              <service class="Doctrine\ORM\Mapping\UnderscoreNamingStrategy" public="false"/>
-            </argument>
+            <argument type="service" id="doctrine.orm.naming_strategy.underscore"/>
           </call>
           <call method="setQuoteStrategy">
-            <argument type="service">
-              <service class="Doctrine\ORM\Mapping\DefaultQuoteStrategy" public="false"/>
-            </argument>
+            <argument type="service" id="doctrine.orm.quote_strategy.default"/>
           </call>
           <call method="setEntityListenerResolver">
             <argument type="service" id="doctrine.orm.main_entity_listener_resolver"/>
+          </call>
+          <call method="addCustomNumericFunction">
+            <argument>time_diff</argument>
+            <argument>UserBundle\DoctrineFunctions\TimeDiff</argument>
           </call>
         </service>
       </argument>
@@ -3011,6 +3062,108 @@
       <argument type="service">
         <service class="Doctrine\Common\Persistence\Mapping\ClassMetadataFactory" public="false">
           <factory service="doctrine.orm.main_entity_manager" method="getMetadataFactory"/>
+        </service>
+      </argument>
+    </service>
+    <service id="doctrine_cache.providers.doctrine.orm.datas_fr_metadata_cache" class="Doctrine\Common\Cache\ArrayCache">
+      <call method="setNamespace">
+        <argument>sf2orm_datas_fr_b49e4f903aa5ec28a3a307e28b2a19a60cc6434b25508b43f4f96a6da7f1486e</argument>
+      </call>
+    </service>
+    <service id="doctrine_cache.providers.doctrine.orm.datas_fr_result_cache" class="Doctrine\Common\Cache\ArrayCache">
+      <call method="setNamespace">
+        <argument>sf2orm_datas_fr_b49e4f903aa5ec28a3a307e28b2a19a60cc6434b25508b43f4f96a6da7f1486e</argument>
+      </call>
+    </service>
+    <service id="doctrine_cache.providers.doctrine.orm.datas_fr_query_cache" class="Doctrine\Common\Cache\ArrayCache">
+      <call method="setNamespace">
+        <argument>sf2orm_datas_fr_b49e4f903aa5ec28a3a307e28b2a19a60cc6434b25508b43f4f96a6da7f1486e</argument>
+      </call>
+    </service>
+    <service id="doctrine.orm.datas_fr_entity_listener_resolver" class="Doctrine\Bundle\DoctrineBundle\Mapping\ContainerAwareEntityListenerResolver">
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="doctrine.orm.datas_fr_listeners.attach_entity_listeners" class="Doctrine\ORM\Tools\AttachEntityListenersListener">
+      <tag name="doctrine.event_listener" event="loadClassMetadata" connection="datas_fr"/>
+    </service>
+    <service id="doctrine.orm.datas_fr_manager_configurator" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator">
+      <argument type="collection"/>
+      <argument type="collection"/>
+    </service>
+    <service id="doctrine.orm.datas_fr_entity_manager" class="Doctrine\ORM\EntityManager" lazy="true">
+      <argument type="service" id="doctrine.dbal.datas_fr_connection"/>
+      <argument type="service">
+        <service class="Doctrine\ORM\Configuration" public="false">
+          <call method="setEntityNamespaces">
+            <argument type="collection">
+              <argument key="EleveBundle">EleveBundle\Entity</argument>
+            </argument>
+          </call>
+          <call method="setMetadataCacheImpl">
+            <argument type="service" id="doctrine_cache.providers.doctrine.orm.datas_fr_metadata_cache"/>
+          </call>
+          <call method="setQueryCacheImpl">
+            <argument type="service" id="doctrine_cache.providers.doctrine.orm.datas_fr_query_cache"/>
+          </call>
+          <call method="setResultCacheImpl">
+            <argument type="service" id="doctrine_cache.providers.doctrine.orm.datas_fr_result_cache"/>
+          </call>
+          <call method="setMetadataDriverImpl">
+            <argument type="service">
+              <service class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false">
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>C:\Users\sylvain.dupont\Desktop\Projets Web\EE\src\EleveBundle\Entity\EntityFormations</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>EleveBundle\Entity</argument>
+                </call>
+              </service>
+            </argument>
+          </call>
+          <call method="setProxyDir">
+            <argument>C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev/doctrine/orm/Proxies</argument>
+          </call>
+          <call method="setProxyNamespace">
+            <argument>Proxies</argument>
+          </call>
+          <call method="setAutoGenerateProxyClasses">
+            <argument>true</argument>
+          </call>
+          <call method="setClassMetadataFactoryName">
+            <argument>Doctrine\ORM\Mapping\ClassMetadataFactory</argument>
+          </call>
+          <call method="setDefaultRepositoryClassName">
+            <argument>Doctrine\ORM\EntityRepository</argument>
+          </call>
+          <call method="setNamingStrategy">
+            <argument type="service" id="doctrine.orm.naming_strategy.underscore"/>
+          </call>
+          <call method="setQuoteStrategy">
+            <argument type="service" id="doctrine.orm.quote_strategy.default"/>
+          </call>
+          <call method="setEntityListenerResolver">
+            <argument type="service" id="doctrine.orm.datas_fr_entity_listener_resolver"/>
+          </call>
+          <call method="addCustomNumericFunction">
+            <argument>time_diff</argument>
+            <argument>UserBundle\DoctrineFunctions\TimeDiff</argument>
+          </call>
+        </service>
+      </argument>
+      <factory class="Doctrine\ORM\EntityManager" method="create"/>
+      <configurator service="doctrine.orm.datas_fr_manager_configurator" method="configure"/>
+    </service>
+    <service id="doctrine.orm.datas_fr_entity_manager.property_info_extractor" class="Symfony\Bridge\Doctrine\PropertyInfo\DoctrineExtractor">
+      <tag name="property_info.list_extractor" priority="-1001"/>
+      <tag name="property_info.type_extractor" priority="-999"/>
+      <argument type="service">
+        <service class="Doctrine\Common\Persistence\Mapping\ClassMetadataFactory" public="false">
+          <factory service="doctrine.orm.datas_fr_entity_manager" method="getMetadataFactory"/>
         </service>
       </argument>
     </service>
@@ -3095,7 +3248,7 @@
             </argument>
             <argument type="service">
               <service class="Assetic\Cache\ConfigCache" public="false">
-                <argument>C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev/assetic/config</argument>
+                <argument>C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev/assetic/config</argument>
               </service>
             </argument>
             <argument>true</argument>
@@ -3318,7 +3471,7 @@
       <argument type="service" id="assetic.asset_manager"/>
       <argument type="service">
         <service class="Assetic\Cache\FilesystemCache" public="false">
-          <argument>C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev/assetic/assets</argument>
+          <argument>C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev/assetic/assets</argument>
         </service>
       </argument>
       <argument>false</argument>
@@ -3601,7 +3754,7 @@
     </service>
     <service id="monolog.handler.null_internal" class="Monolog\Handler\NullHandler"/>
     <service id="session.storage.filesystem" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage">
-      <argument>C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev/sessions</argument>
+      <argument>C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service" id="session.storage.metadata_bag"/>
     </service>
@@ -3630,9 +3783,9 @@
     <service id="router" class="Symfony\Bundle\FrameworkBundle\Routing\Router">
       <tag name="monolog.logger" channel="router"/>
       <argument type="service" id="service_container"/>
-      <argument>C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev/assetic/routing.yml</argument>
+      <argument>C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev/assetic/routing.yml</argument>
       <argument type="collection">
-        <argument key="cache_dir">C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev</argument>
+        <argument key="cache_dir">C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
         <argument key="generator_base_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
@@ -3657,7 +3810,7 @@
         <service class="Symfony\Component\Cache\DoctrineProvider" public="false">
           <argument type="service">
             <service class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
-              <argument>C:\Users\sylvain.dupont\Desktop\Projets Web\EE\var\cache\dev/annotations.php</argument>
+              <argument>C:/Users/sylvain.dupont/Desktop/Projets Web/EE/var/cache/dev/annotations.php</argument>
               <argument type="service" id="cache.annotations"/>
               <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
             </service>
@@ -3669,7 +3822,7 @@
     </service>
     <service id="security.encoder_factory" class="Symfony\Component\Security\Core\Encoder\EncoderFactory">
       <argument type="collection">
-        <argument key="EleveBundle\Entity\Eleve" type="service" id="integer_encoder"/>
+        <argument key="EleveBundle\Entity\EntityMain\Eleve" type="service" id="integer_encoder"/>
         <argument key="Symfony\Component\Security\Core\User\User" type="collection">
           <argument key="class">Symfony\Component\Security\Core\Encoder\PlaintextPasswordEncoder</argument>
           <argument key="arguments" type="collection">
@@ -3824,6 +3977,9 @@
     <service id="doctrine.orm.main_metadata_cache" alias="doctrine_cache.providers.doctrine.orm.main_metadata_cache"/>
     <service id="doctrine.orm.main_result_cache" alias="doctrine_cache.providers.doctrine.orm.main_result_cache"/>
     <service id="doctrine.orm.main_query_cache" alias="doctrine_cache.providers.doctrine.orm.main_query_cache"/>
+    <service id="doctrine.orm.datas_fr_metadata_cache" alias="doctrine_cache.providers.doctrine.orm.datas_fr_metadata_cache"/>
+    <service id="doctrine.orm.datas_fr_result_cache" alias="doctrine_cache.providers.doctrine.orm.datas_fr_result_cache"/>
+    <service id="doctrine.orm.datas_fr_query_cache" alias="doctrine_cache.providers.doctrine.orm.datas_fr_query_cache"/>
     <service id="console.command.sensiolabs_security_command_securitycheckercommand" alias="sensio_distribution.security_checker.command"/>
   </services>
 </container>

@@ -23,14 +23,30 @@ class DefaultController extends Controller
     }
     
     /**
+     * @Route("/my")
+     */
+    public function profilAction()
+    {
+        return $this->render('EleveBundle:security:profil.html.twig');
+    }
+    
+    /**
+     * @Route("/paiements")
+     */
+    public function paiementsAction()
+    {
+        return $this->render('EleveBundle:Paiements:index.html.twig');
+    }
+    
+    /**
      * @Route("/getMessages")
      */
     public function getMessagesAction()
     {
-        $CourriersLu = $this->getDoctrine()->getRepository("EleveBundle:Courrieretatlecture")->findBy(array("numordre"=>$this->getUser(),"etatlecture"=>0),array("etatlecture"=>"ASC"));
-        $CourriersNonLu = $this->getDoctrine()->getRepository("EleveBundle:Courrieretatlecture")->findBy(array("numordre"=>$this->getUser(),"etatlecture"=>1),array("etatlecture"=>"ASC"));
-        $CourriersAr = $this->getDoctrine()->getRepository("EleveBundle:Courrieretatlecture")->findBy(array("numordre"=>$this->getUser(),"etatlecture"=>2),array("etatlecture"=>"ASC"));
-        $Tickets = $this->getDoctrine()->getRepository("EleveBundle:AffectationTicket")->findBy(array("numOrdre"=>$this->getUser(),"actif"=>true),array("dateCreation"=>"DESC"));        
+        $CourriersLu = $this->getDoctrine()->getRepository("EleveBundle\Entity\EntityMain\Courrieretatlecture")->findBy(array("numordre"=>$this->getUser(),"etatlecture"=>0),array("etatlecture"=>"ASC"));
+        $CourriersNonLu = $this->getDoctrine()->getRepository("EleveBundle\Entity\EntityMain\Courrieretatlecture")->findBy(array("numordre"=>$this->getUser(),"etatlecture"=>1),array("etatlecture"=>"ASC"));
+        $CourriersAr = $this->getDoctrine()->getRepository("EleveBundle\Entity\EntityMain\Courrieretatlecture")->findBy(array("numordre"=>$this->getUser(),"etatlecture"=>2),array("etatlecture"=>"ASC"));
+        $Tickets = $this->getDoctrine()->getRepository("EleveBundle\Entity\EntityMain\AffectationTicket")->findBy(array("numOrdre"=>$this->getUser(),"actif"=>true),array("dateCreation"=>"DESC"));        
         return $this->render('EleveBundle:Courriers:index.html.twig',array(
             "CourriersLu"=>$CourriersLu,
             "CourriersNonLu"=>$CourriersNonLu,
@@ -43,8 +59,8 @@ class DefaultController extends Controller
      */
     public function getTicketAction($id)
     {
-        $Ticket = $this->getDoctrine()->getRepository("EleveBundle:AffectationTicket")->find($id);
-        $HTicket = $this->getDoctrine()->getRepository("EleveBundle:HistoriqueTicket")->findBy(array("idAffectation"=>$Ticket),array("dateAction"=>"ASC"));
+        $Ticket = $this->getDoctrine()->getRepository("EleveBundle\Entity\EntityMain\AffectationTicket")->find($id);
+        $HTicket = $this->getDoctrine()->getRepository("EleveBundle\Entity\EntityMain\HistoriqueTicket")->findBy(array("idAffectation"=>$Ticket),array("dateAction"=>"ASC"));
         return $this->render('EleveBundle:Courriers:ticket.html.twig',array(
             "Ticket"=>$Ticket,
             "HTicket"=>$HTicket

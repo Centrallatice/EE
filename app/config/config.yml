@@ -63,7 +63,16 @@ doctrine:
                 password: "%database_password%"
                 charset:  UTF-8
                 options:
-                    1002: "SET NAMES 'UTF8'"    
+                    1002: "SET NAMES 'UTF8'"
+            datas_fr:
+                driver:   pdo_sqlsrv
+                host:     "%database_host%"
+                dbname:   datas_fr
+                user:     "%database_user%"
+                password: "%database_password%"
+                charset:  UTF-8
+                options:
+                    1002: "SET NAMES 'UTF8'"
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
@@ -73,16 +82,24 @@ doctrine:
                 naming_strategy: doctrine.orm.naming_strategy.underscore
                 connection:       main
                 auto_mapping: true
-#                query_cache_driver: apc
                 mappings:
-#                    UserBundle: ~
+                    EleveBundle:
+                        type: annotation
+                        dir: Entity\EntityMain
                 dql:
                     numeric_functions:
-#                        time_diff: UserBundle\DoctrineFunctions\TimeDiff 
-#            labete:
-#                naming_strategy: doctrine.orm.naming_strategy.underscore
-#                connection:       labete
-#                auto_mapping: false
+                        time_diff: UserBundle\DoctrineFunctions\TimeDiff 
+            datas_fr:
+                naming_strategy: doctrine.orm.naming_strategy.underscore
+                connection:       datas_fr
+                auto_mapping: false
+                mappings:
+                    EleveBundle:
+                        type: annotation
+                        dir: Entity\EntityFormations
+                dql:
+                    numeric_functions:
+                        time_diff: UserBundle\DoctrineFunctions\TimeDiff 
 
 kms_froala_editor:
   language: "fr"

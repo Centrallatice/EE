@@ -35,7 +35,6 @@ function getMessages(){
        type : 'GET',
        dataType : 'JSON',
        success : function(data){
-           console.log(data);
            $('<span class="new badge blue" data-badge-caption="">'+data.data+'</span>').appendTo(".msgLink");
        }
     });

@@ -2,7 +2,7 @@
 
 namespace EleveBundle\Controller;
 
-use EleveBundle\Entity\QuestionnaireSatisfaction;
+use EleveBundle\Entity\EntityMain\QuestionnaireSatisfaction;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -21,26 +21,31 @@ class QuestionnaireSatisfactionController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $questionnaireSatisfaction = new Questionnairesatisfaction();
         $user = $this->getUser();
-        $descriptionFormation=$this->container->get('services.filtre_marque')->getDescriptionFormation($user->getFormationCode());
-        
-        $form = $this->createForm('EleveBundle\Form\QuestionnaireSatisfactionType', $questionnaireSatisfaction);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $questionnaireSatisfaction->setFormation($user->getCommandeFormation());
-            $em->persist($questionnaireSatisfaction);
-            $em->flush($questionnaireSatisfaction);
+        $existeQuestionnaire = $this->getDoctrine()->getRepository("EleveBundle\Entity\EntityMain\QuestionnaireSatisfaction")->findOneBy(array("numOrdre"=>$user));
+        if($existeQuestionnaire==null):
+            $questionnaireSatisfaction = new Questionnairesatisfaction();
+            $formation = $this->getDoctrine()->getManager("datas_fr")->getRepository("EleveBundle\Entity\EntityFormations\Formations")->findOneBy(array("formation"=>$user->getFormationCode()));
+            $form = $this->createForm('EleveBundle\Form\QuestionnaireSatisfactionType', $questionnaireSatisfaction);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $questionnaireSatisfaction->setFormation($user->getCommandeFormation());
+                $questionnaireSatisfaction->setNumOrdre($user);
+                $em->persist($questionnaireSatisfaction);
+                $em->flush($questionnaireSatisfaction);
 
-            return $this->redirectToRoute('questionnairesatisfaction_show', array('id' => $questionnaireSatisfaction->getId()));
-        }
+                return $this->redirectToRoute('questionnairesatisfaction_show', array('id' => $questionnaireSatisfaction->getId()));
+            }
 
-        return $this->render('EleveBundle:Satisfactions:new.html.twig', array(
-            'questionnaireSatisfaction' => $questionnaireSatisfaction,
-            'form' => $form->createView(),
-            'descriptionFormation' => $descriptionFormation
-        ));
+            return $this->render('EleveBundle:Satisfactions:new.html.twig', array(
+                'questionnaireSatisfaction' => $questionnaireSatisfaction,
+                'form' => $form->createView(),
+                'descriptionFormation' => $formation->getFormationLibelle()
+            ));
+        else:
+            return $this->redirectToRoute('questionnairesatisfaction_show', array('id' => $existeQuestionnaire->getId()));
+        endif;
     }
 
 
@@ -52,7 +57,7 @@ class QuestionnaireSatisfactionController extends Controller
      */
     public function showAction(QuestionnaireSatisfaction $questionnaireSatisfaction)
     {
-        $deleteForm = $this->createDeleteForm($questionnaireSatisfaction);
+//        $deleteForm = $this->createDeleteForm($questionnaireSatisfaction);
 
         return $this->render('EleveBundle:Satisfactions:show.html.twig', array(
             'questionnaireSatisfaction' => $questionnaireSatisfaction

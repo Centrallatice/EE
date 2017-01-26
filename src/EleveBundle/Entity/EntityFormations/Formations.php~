@@ -1,0 +1,158 @@
+<?php
+
+namespace EleveBundle\Entity\EntityFormations;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Formations
+ *
+ * @ORM\Table(name="VA_Formations")
+ * @ORM\Entity(repositoryClass="EleveBundle\Repository\EntityFormations\FormationsRepository")
+ */
+class Formations
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="formation", type="string", length=50, nullable=true)
+     */
+    private $formation;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="formation_libelle", type="string", length=50, nullable=true)
+     */
+    private $formationLibelle;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="type", type="integer", nullable=true)
+     */
+    private $type;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="marque", type="integer", nullable=true)
+     */
+    private $marque;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="visible", type="integer", nullable=true)
+     */
+    private $visible;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="visible_DdeDoc", type="integer", nullable=true)
+     */
+    private $visibleDdeDoc;
+    
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="url_image", type="string", length=100, nullable=true)
+     */
+    private $urlImage;
+    
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="url_retargeting", type="string", length=100, nullable=true)
+     */
+    private $urlRetargeting;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="l_image", type="integer", nullable=true)
+     */
+    private $lImage;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="h_image", type="integer", nullable=true)
+     */
+    private $hImage;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type_image", type="string", length=4, nullable=true)
+     */
+    private $typeImage;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ordre_affichage", type="integer", nullable=true)
+     */
+    private $ordreAffichage;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pays", type="string", length=50, nullable=true)
+     */
+    private $pays;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="categorie", type="string", length=50, nullable=true)
+     */
+    private $categorie;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="LogoMarque", type="string", length=255, nullable=true)
+     */
+    private $LogoMarque;
+    
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="epreuve", type="boolean", nullable=true, options={"default":0})
+     */
+    private $epreuve = false;
+    
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idDiplomeo", type="integer", nullable=true)
+     */
+    private $idDiplomeo;
+    
+    
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    public function __construct()
+    {
+        $this->epreuve = false;
+    }
+}
+

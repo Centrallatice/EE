@@ -6,7 +6,7 @@
 {% endblock %}
 {% block body %}
     <div class="row">
-        <div class="col s12">   
+        <div class="col s12">
            {{ form_start(form) }}
                 <div class="carousel carousel-slider">
                     <div class="carousel-item" href="#one!"> 
@@ -18,16 +18,15 @@
                         <div class="col s12 m6">   
                             {{ form_label(form.formation) }}
                             {{ form_errors(form.formation) }}
-                            {{ form_widget(form.formation,{'attr': {'value': descriptionFormation.formation_libelle}}) }}
+                            {{ form_widget(form.formation,{'attr': {'value': descriptionFormation}}) }}
                         </div>    
+                        <div class="col s12"><br />Période de réalisation : </div>   
                         <div class="col s12 m6">   
-                            Période de réalisation : 
-                            <div class="input-field inline">
+                            Du <div class="input-field inline">
                                 {{ form_label(form.periodeDebut) }}
                                 {{ form_errors(form.periodeDebut) }}
                                 {{ form_widget(form.periodeDebut) }}
-                            </div>
-                            au
+                            </div>Au
                             <div class="input-field inline">
                                 {{ form_label(form.periodeFin) }}
                                 {{ form_errors(form.periodeFin) }}
@@ -234,46 +233,6 @@
     </div>
 {% endblock %}
 {% block javascripts %}
-     {{parent()}}
-    <script type="text/javascript">
-         var i=1;
-         $('.carousel.carousel-slider').carousel({
-             full_width: true,
-             no_wrap: true,
-             indicators: false
-         });
-         $('#btn-slider').on("click",function(){
-             var error = false;
-             if(i<4){
-                 $('.carousel-item:nth-child('+i+') .radio-container').each(function(){
-                    var checked=-1;
-                    $(this).find('input[type=radio]:checked').each(function(){
-                        checked=$(this).val();
-                    });
-                    if(checked==-1){
-                        if($(this).hasClass("error-not-filled")==false){
-                            $(this).addClass("error-not-filled");
-                            $('<div class="errorInfo">Ce champ est obligatoire</div>').appendTo(this);
-                        }
-                        error = true;
-                    }
-                    else{
-                        $(this).removeClass("error-not-filled");
-                        $(this).find("errorInfo").remove();
-                    }
-                 });
-             }
-             if(!error){
-                i++;
-                $('.carousel.carousel-slider').carousel('next');
-                if(i==4){
-                    $('#btn-slider').off("click");
-                    $('#btn-slider').attr("type","submit");
-                    $('#btn-slider').on("click",function(){
-                        $('form[name=elevebundle_questionnairesatisfaction]').submit();
-                    });
-                }
-             }
-         });
-    </script>
+    {{parent()}}
+    <script src="{{ asset('js/parts/questionnaireSatisfaction.js') }}"></script>
 {% endblock %}

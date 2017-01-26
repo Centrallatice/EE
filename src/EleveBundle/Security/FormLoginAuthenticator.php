@@ -21,17 +21,19 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\DependencyInjection\Container;
+use Doctrine\ORM\EntityManager;
 
 class FormLoginAuthenticator extends AbstractFormLoginAuthenticator
 {
     private $router;
     private $encoder;
 
-    public function __construct(RouterInterface $router, UserPasswordEncoderInterface $encoder,Container $service)
+    public function __construct(RouterInterface $router, UserPasswordEncoderInterface $encoder,Container $service,EntityManager $em)
     {
         $this->router = $router;
         $this->encoder = $encoder;
         $this->container = $service;
+        $this->em = $em;
     }
 
     public function getCredentials(Request $request)
@@ -60,8 +62,9 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator
     public function checkCredentials($credentials, UserInterface $user)
     {
         $plainPassword = $credentials['password'];
-        $datas=$this->container->get('services.filtre_marque')->getMarqueValide($user->getFormationCode());
-        $marque=$datas['marque'];
+        $formation = $this->container->get('doctrine')->getManager("datas_fr")->getRepository("EleveBundle\Entity\EntityFormations\Formations")->findOneBy(array("formation"=>$user->getFormationCode()));
+        $marque=$formation->getMarque();
+        
         if ($this->encoder->isPasswordValid($user, $plainPassword) && $marque==$this->container->getParameter("marque")) {
             return true;
         }

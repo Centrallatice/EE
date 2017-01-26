@@ -1,6 +1,376 @@
 {% extends "::root.html.twig" %}
-
+{% block breadcrumb %}<a class="breadcrumb" href="#!">Questionnaire de satisfaction</a>{% endblock %}
+{% block stylesheets %}
+     {{parent()}}
+     <link rel="stylesheet" href="{{ asset('css/parts/questionnaireSatisfaction.css') }}">
+{% endblock %}
 {% block body %}
-    <h1>Questionnairesatisfaction creation</h1>
-    {{dump(questionnaireSatisfaction)}}
+    <div class="row rowshow">
+        <div class="col s12"> 
+            <div class="col s12 m6">
+                <label>Organisme de formation : </label> 
+                {{questionnaireSatisfaction.nomOrganisme}}
+            </div>
+            <div class="col s12 m6">
+                <label>Intitulé de la formation : </label>
+                {{questionnaireSatisfaction.formation}}</div>
+            <div class="col s12 m6">   
+                <label>Période de réalisation : </label> du {{questionnaireSatisfaction.periodeDebut|date('d/m/Y')}}
+                au {{questionnaireSatisfaction.periodeFin|date('d/m/Y')}}
+            </div>    
+            <div class="col s12 m6">   
+                <label>Durée : </label>  {{questionnaireSatisfaction.dureeFormation}}
+            </div>    
+            <div class="col s12">
+                <h2>1- Offre d'action de formation</h2>
+            </div>
+            <div class="col s12">
+                <div class="col s6">
+                    <div class="col s12 sousTitreQuestion">
+                        De manière générale, êtes-vous satisfait :
+                    </div>
+                    <div class="col s12  radio-container">   
+                        <label>- De votre organisme de formation : </label><br />
+                            {% if questionnaireSatisfaction.offreSatisfaitOrganisme==1 %}
+                                Pas du tout satisfait
+                            {% elseif questionnaireSatisfaction.offreSatisfaitOrganisme==2 %}
+                                Insuffisant
+                            {% elseif questionnaireSatisfaction.offreSatisfaitOrganisme==3 %}
+                                Peu satisfait
+                            {% elseif questionnaireSatisfaction.offreSatisfaitOrganisme==4 %}
+                                Très satisfait
+                            {% endif %} 
+                       <br />
+                       <label>- De la formation qui vous a été dispensée : </label><br />
+                            {% if questionnaireSatisfaction.offreSatisfaitFormation==1 %}
+                                Pas du tout satisfait
+                            {% elseif questionnaireSatisfaction.offreSatisfaitFormation==2 %}
+                                Insuffisant
+                            {% elseif questionnaireSatisfaction.offreSatisfaitFormation==3 %}
+                                Peu satisfait
+                            {% elseif questionnaireSatisfaction.offreSatisfaitFormation==4 %}
+                                Très satisfait
+                            {% endif %} 
+                    </div>    
+                </div>
+                <div class="col s6">
+                    <div class="col s12 sousTitreQuestion">
+                        Comment évalueriez-vous la pertinence de la formation par rapport : 
+                    </div>   
+                    <div class="col s12 radio-container">   
+                        <label>- à votre projet professionnel ? </label><br />
+                            {% if questionnaireSatisfaction.offrePertinenceProjet==1 %}
+                                Pas du tout satisfait
+                            {% elseif questionnaireSatisfaction.offrePertinenceProjet==2 %}
+                                Insuffisant
+                            {% elseif questionnaireSatisfaction.offrePertinenceProjet==3 %}
+                                Peu satisfait
+                            {% elseif questionnaireSatisfaction.offrePertinenceProjet==4 %}
+                                Très satisfait
+                            {% endif %} 
+                       <br />
+                       <label>- à vos attentes ? </label><br />
+                            {% if questionnaireSatisfaction.pertinenceAttentes==1 %}
+                                Pas du tout satisfait
+                            {% elseif questionnaireSatisfaction.pertinenceAttentes==2 %}
+                                Insuffisant
+                            {% elseif questionnaireSatisfaction.pertinenceAttentes==3 %}
+                                Peu satisfait
+                            {% elseif questionnaireSatisfaction.pertinenceAttentes==4 %}
+                                Très satisfait
+                            {% endif %} 
+                    </div>    
+                </div>
+                <div class="col s12">
+                    <div class="col s12 sousTitreQuestion">
+                        Avez-vous des remarques ou des suggestions ?
+                    </div>
+                    <div class="col s12">
+                        {{questionnaireSatisfaction.OffreRemarque|raw}}
+                    </div>
+                </div>
+            </div>       
+            <!-- PARTIE 2 -->
+            <div class="col s12">
+                <h2>2- Relations avec l'organisme de formation</h2>
+            </div>
+            <div class="col s12">
+                <div class="col s6">
+                    <div class="col s12 sousTitreQuestion">
+                        De manière générale, êtes-vous satisfait :
+                    </div>
+                    <div class="col s12  radio-container">   
+                        <label>- des échanges avec votre organisme de formation ?  Il peut s'agir d'échanges téléphoniques ou par courrier, d'entretiens... </label><br />
+                            {% if questionnaireSatisfaction.relationEchanges==1 %}
+                                Pas du tout satisfait
+                            {% elseif questionnaireSatisfaction.relationEchanges==2 %}
+                                Insuffisant
+                            {% elseif questionnaireSatisfaction.relationEchanges==3 %}
+                                Peu satisfait
+                            {% elseif questionnaireSatisfaction.relationEchanges==4 %}
+                                Très satisfait
+                            {% endif %} 
+                       <br />
+                       <label>- de l'adéquation des cours avec votre projet professionnel ?</label><br />
+                            {% if questionnaireSatisfaction.relationAdequationCours==1 %}
+                                Pas du tout satisfait
+                            {% elseif questionnaireSatisfaction.relationAdequationCours==2 %}
+                                Insuffisant
+                            {% elseif questionnaireSatisfaction.relationAdequationCours==3 %}
+                                Peu satisfait
+                            {% elseif questionnaireSatisfaction.relationAdequationCours==4 %}
+                                Très satisfait
+                            {% endif %} 
+                    </div>    
+                </div>
+                <div class="col s6">
+                    <div class="col s12 sousTitreQuestion">
+                        Etes-vous satisfait des délais de livraison : 
+                    </div>   
+                    <div class="col s12 radio-container">   
+                        <label>- de vos supports de cours ?</label><br />
+                            {% if questionnaireSatisfaction.relationDelaisSupport=="1" %}
+                                Pas du tout satisfait
+                            {% elseif questionnaireSatisfaction.relationDelaisSupport=="2" %}
+                                Insuffisant
+                            {% elseif questionnaireSatisfaction.relationDelaisSupport=="3" %}
+                                Peu satisfait
+                            {% elseif questionnaireSatisfaction.relationDelaisSupport=="4" %}
+                                Très satisfait
+                            {% endif %} 
+                    </div>    
+                </div>    
+                <div class="col s6">
+                    <div class="col s12 sousTitreQuestion">
+                        Êtes-vous satisfait du respect des délais de corrections des devoirs ?
+                    </div>   
+                    <div class="col s12 radio-container">  
+                            {% if questionnaireSatisfaction.relationRespectDelaisCorrection==1 %}
+                                Pas du tout satisfait
+                            {% elseif questionnaireSatisfaction.relationRespectDelaisCorrection==2 %}
+                                Insuffisant
+                            {% elseif questionnaireSatisfaction.relationRespectDelaisCorrection==3 %}
+                                Peu satisfait
+                            {% elseif questionnaireSatisfaction.relationRespectDelaisCorrection==4 %}
+                                Très satisfait
+                            {% endif %} 
+                    </div>    
+                </div>    
+                <div class="col s12">
+                    <div class="col s12 sousTitreQuestion">
+                        Êtes-vous satisfait de la qualité des corrections de vos devoirs ou de vos évaluations ?
+                    </div>
+                    <div class="col s12 radio-container">   
+                            {% if questionnaireSatisfaction.relationQualiteCorrection==1 %}
+                                Pas du tout satisfait
+                            {% elseif questionnaireSatisfaction.relationQualiteCorrection==2 %}
+                                Insuffisant
+                            {% elseif questionnaireSatisfaction.relationQualiteCorrection==3 %}
+                                Peu satisfait
+                            {% elseif questionnaireSatisfaction.relationQualiteCorrection==4 %}
+                                Très satisfait
+                            {% endif %} 
+                    </div>    
+                </div>
+                <div class="col s12">
+                    <div class="col s12 sousTitreQuestion">
+                        Avez-vous des remarques ou des suggestions ?
+                    </div>
+                    <div class="col s12">
+                        {{questionnaireSatisfaction.remarqueRelation|raw}}
+                    </div>
+                </div>
+            </div>     
+            <!-- Partie 3 -->
+            <div class="col s12">
+                <h2>3- Déroulement de l'action de formation</h2>
+            </div>
+            <div class="col s12">
+                <div class="col s6">
+                    <div class="col s12 sousTitreQuestion">
+                        De manière générale, êtes-vous satisfait :
+                    </div>
+                    <div class="col s12  radio-container">   
+                        <label>- par les supports pédagogiques utilisés (livres, application, e-learning...) ?</label><br />
+                            {% if questionnaireSatisfaction.deroulementSupportUtilises==1 %}
+                                Pas du tout satisfait
+                            {% elseif questionnaireSatisfaction.deroulementSupportUtilises==2 %}
+                                Insuffisant
+                            {% elseif questionnaireSatisfaction.deroulementSupportUtilises==3 %}
+                                Peu satisfait
+                            {% elseif questionnaireSatisfaction.deroulementSupportUtilises==4 %}
+                                Très satisfait
+                            {% endif %} 
+                       <br />
+                       <label>- par le contenu des supports pédagogiques (clarté, pertinence...) </label><br />
+                            {% if questionnaireSatisfaction.deroulementSupportContenu==1 %}
+                                Pas du tout satisfait
+                            {% elseif questionnaireSatisfaction.deroulementSupportContenu==2 %}
+                                Insuffisant
+                            {% elseif questionnaireSatisfaction.deroulementSupportContenu==3 %}
+                                Peu satisfait
+                            {% elseif questionnaireSatisfaction.deroulementSupportContenu==4 %}
+                                Très satisfait
+                            {% endif %} 
+                    </div>    
+                </div>
+                <div class="col s6">
+                    <div class="col s12 sousTitreQuestion">
+                         Êtes-vous satisfait par les moyens de contact proposés par l'école ? (téléphone, espace élève, courriers, emails, application ou Facebook) 
+                    </div>   
+                    <div class="col s12 radio-container">   
+                            {% if questionnaireSatisfaction.deroulementMoyenContact=="1" %}
+                                Pas du tout satisfait
+                            {% elseif questionnaireSatisfaction.deroulementMoyenContact=="2" %}
+                                Insuffisant
+                            {% elseif questionnaireSatisfaction.deroulementMoyenContact=="3" %}
+                                Peu satisfait
+                            {% elseif questionnaireSatisfaction.deroulementMoyenContact=="4" %}
+                                Très satisfait
+                            {% endif %} 
+                    </div>    
+                </div>    
+                <div class="col s6">
+                    <div class="col s12 sousTitreQuestion">
+                        Êtes-vous satisfait de votre suivi pédagogique ?  Il s'agit d'évaluer votre satisfaction quant à votre prise en considération par l'école. 
+                    </div>   
+                    <div class="col s12 radio-container">  
+                            {% if questionnaireSatisfaction.deroulementSuiviPedagogique==1 %}
+                                Pas du tout satisfait
+                            {% elseif questionnaireSatisfaction.deroulementSuiviPedagogique==2 %}
+                                Insuffisant
+                            {% elseif questionnaireSatisfaction.deroulementSuiviPedagogique==3 %}
+                                Peu satisfait
+                            {% elseif questionnaireSatisfaction.deroulementSuiviPedagogique==4 %}
+                                Très satisfait
+                            {% endif %} 
+                    </div>    
+                </div>    
+                <div class="col s12">
+                    <div class="col s12 sousTitreQuestion">
+                        Êtes-vous satisfait des modes d'évaluation mis en place par l'école (tests, devoirs, épreuves…)?
+                    </div>
+                    <div class="col s12 radio-container">   
+                            {% if questionnaireSatisfaction.deroulementModeEvaluation==1 %}
+                                Pas du tout satisfait
+                            {% elseif questionnaireSatisfaction.deroulementModeEvaluation==2 %}
+                                Insuffisant
+                            {% elseif questionnaireSatisfaction.deroulementModeEvaluation==3 %}
+                                Peu satisfait
+                            {% elseif questionnaireSatisfaction.deroulementModeEvaluation==4 %}
+                                Très satisfait
+                            {% endif %} 
+                    </div>    
+                </div>
+                <div class="col s6">
+                    <div class="col s12 sousTitreQuestion">
+                        Êtes-vous satisfait de la qualité de vos contacts :
+                    </div>
+                    <div class="col s12  radio-container">   
+                        <label>- avec les professeurs ? </label><br />
+                            {% if questionnaireSatisfaction.deroulementQualiteContactProf==1 %}
+                                Pas du tout satisfait
+                            {% elseif questionnaireSatisfaction.deroulementQualiteContactProf==2 %}
+                                Insuffisant
+                            {% elseif questionnaireSatisfaction.deroulementQualiteContactProf==3 %}
+                                Peu satisfait
+                            {% elseif questionnaireSatisfaction.deroulementQualiteContactProf==4 %}
+                                Très satisfait
+                            {% endif %} 
+                       <br />
+                       <label>- avec les assistantes pédagogiques ? </label><br />
+                            {% if questionnaireSatisfaction.deroulementQualiteContactAss==1 %}
+                                Pas du tout satisfait
+                            {% elseif questionnaireSatisfaction.deroulementQualiteContactAss==2 %}
+                                Insuffisant
+                            {% elseif questionnaireSatisfaction.deroulementQualiteContactAss==3 %}
+                                Peu satisfait
+                            {% elseif questionnaireSatisfaction.deroulementQualiteContactAss==4 %}
+                                Très satisfait
+                            {% endif %} 
+                    </div>    
+                </div>
+                <div class="col s6">
+                    <div class="col s12 sousTitreQuestion">
+                        Êtes-vous satisfait de la compétence :
+                    </div>
+                    <div class="col s12  radio-container">   
+                        <label>- des professeurs ? </label><br />
+                            {% if questionnaireSatisfaction.deroulementCompetencesProf==1 %}
+                                Pas du tout satisfait
+                            {% elseif questionnaireSatisfaction.deroulementCompetencesProf==2 %}
+                                Insuffisant
+                            {% elseif questionnaireSatisfaction.deroulementCompetencesProf==3 %}
+                                Peu satisfait
+                            {% elseif questionnaireSatisfaction.deroulementCompetencesProf==4 %}
+                                Très satisfait
+                            {% endif %} 
+                       <br />
+                       <label>- des assistantes pédagogiques ? </label><br />
+                            {% if questionnaireSatisfaction.deroulementCompetencesAss==1 %}
+                                Pas du tout satisfait
+                            {% elseif questionnaireSatisfaction.deroulementCompetencesAss==2 %}
+                                Insuffisant
+                            {% elseif questionnaireSatisfaction.deroulementCompetencesAss==3 %}
+                                Peu satisfait
+                            {% elseif questionnaireSatisfaction.deroulementCompetencesAss==4 %}
+                                Très satisfait
+                            {% endif %} 
+                    </div>    
+                </div>
+                <div class="col s12">
+                    <div class="col s12 sousTitreQuestion">
+                        Avez-vous des remarques ou des suggestions ?
+                    </div>
+                    <div class="col s12">
+                        {{questionnaireSatisfaction.deroulementRemarque|raw}}
+                    </div>
+                </div>
+            </div>
+            <!-- Partie 3 -->
+            <div class="col s12">
+                <h2>4- A propos de notre organisme de formation</h2>
+            </div>
+            <div class="col s12">
+                <div class="col s6">
+                    <div class="col s12 sousTitreQuestion">
+                        Seriez-vous prêts à faire de nouveau appel à notre organisme de formation ?
+                    </div>
+                    <div class="col s12  radio-container">
+                        {% if questionnaireSatisfaction.aProposNouveauAppel==0 %}
+                            NON
+                            <br />
+                            <label>Raison : </label><br />
+                            {{questionnaireSatisfaction.aProposNouveauAppelComm}}
+                        {% elseif questionnaireSatisfaction.aProposNouveauAppel==1 %}
+                            OUI
+                        {% endif %} 
+                    </div>
+                </div>
+                <div class="col s6">
+                    <div class="col s12 sousTitreQuestion">
+                        Seriez-vous prêts à recommander notre organisme de formation à votre entourage ?
+                    </div>
+                    <div class="col s12  radio-container">
+                        {% if questionnaireSatisfaction.aProposRecommandation==0 %}
+                            NON
+                            <br />
+                            <label>Raison : </label><br />
+                            {{questionnaireSatisfaction.aProposRecommandationComm}}
+                        {% elseif questionnaireSatisfaction.aProposRecommandation==1 %}
+                            OUI
+                        {% endif %} 
+                    </div>
+                </div>
+                <div class="col s12">
+                    <div class="col s12 sousTitreQuestion">
+                        Avez-vous des remarques ou des suggestions ?
+                    </div>
+                    <div class="col s12">
+                        {{questionnaireSatisfaction.aProposRemarque|raw}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

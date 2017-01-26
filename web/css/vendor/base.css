@@ -1,21 +1,10 @@
-body.nopadding{
-    background:#ebebeb;
+.inline{display:inline}
+.rowhome .card i.right{
+    margin-top:11px;
 }
-.greenme{
-    color:green;
+.rowhome .card .card-content{
+    padding-right:5px;
 }
-.redme{
-    color:red;
-}
-.nopadding{
-	padding:0;
-}
-.bloc-center{
-    margin: auto;
-}
-ul.side-nav{
-    background:#f3f3f3;
-}
-.fr-box.fr-basic{
-    margin-top: 15px;
+main.main{
+    padding-bottom:45px;
 }

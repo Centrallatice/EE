@@ -7,13 +7,13 @@
 }
 .nav-wrapper .breadcrumb i.material-icons{
     padding-right:5px;
-    height: 60px;
+    height: 50px;
 }
 .nav-wrapper .colprofil i.left.material-icons{
     margin-right:5px;
 }
 .nav-wrapper a{
-    line-height: 60px;
+    line-height: 50px;
 }
 ul.tabs{
         border-bottom: 2px solid #f9d0d2;
@@ -61,7 +61,7 @@ body.collapsibleBody .main{
     margin-bottom: 0px;
 }
 nav.top-nav {
-    height: 60px;
+    height: 50px;
     box-shadow: none;
 }
 nav.top-nav a.page-title {
@@ -74,7 +74,8 @@ nav.top-nav a.page-title {
 ul.side-nav.fixed li.logo {
     text-align: center;
     margin-top: 9px;
-    margin-bottom: 50px;
+    margin-bottom: 0px;
+    border-bottom:2px solid rgba(0,0,0,0.47);
 }
 #nav-mobile li.search {
     top: 65px;
@@ -120,19 +121,23 @@ ul.side-nav.fixed li a{
     content:'';
 }
 .side-nav.fixed .collapsible-header.collapsible.active::after{
-    -webkit-animation:spin 0.3s linear;
-    -moz-animation:spin 0.3s linear;
-    animation:spin 0.3s linear;
-    transform:rotate(-90deg);
-    margin-right: 0px;
-    border-right: 8px solid rgba(0,0,0,1);
+    -webkit-animation:animation-menu-gauche 0.2s linear;
+    -moz-animation:animation-menu-gauche 0.2s linear;
+    animation:animation-menu-gauche 0.2s linear;
+    border-top: 16px solid rgba(196,0,122,1);
+    border-left: 16px solid rgba(196,0,122,1);
+    border-bottom: 16px solid rgba(196,0,122,1);
+    border-right: 16px solid rgba(196,0,122,1);
+    margin-right: -29px;
+    margin-top:0px;
+    height:60px;
 }
 .side-nav.fixed .collapsible-header.collapsible.active{
+    -webkit-animation:animation-menu-gauche-texte 0.3s linear;
     font-weight: 700;
 }
-@keyframes spin {
-    from {transform:rotate(0deg);}
-    to {transform:rotate(-90deg);}
+.side-nav .collapsible-body>ul:not(.collapsible)>li.active, .side-nav.fixed .collapsible-body>ul:not(.collapsible)>li.active {
+    background-color: rgba(0, 0, 0, 0.05);
 }
 .dropdown-content li a.action-blue,
 .dropdown-content li a.action-blue i,
@@ -254,7 +259,9 @@ button.close {
 .alert-danger hr {
   border-top-color: #e4b9b9;
 }
-
+.collapsible{
+    border-left:none;
+}
 .alert-danger .alert-link {
   color: #843534;
 }
@@ -267,7 +274,7 @@ a.button-collapse.top-nav {
     padding-left:20px;
 }
 .side-nav .collapsible-body li a, .side-nav.fixed .collapsible-body li a {
-    padding: 0 23.5px 0 35px;
+    padding: 0 23.5px 0 20px;
 }
 ul.side-nav.fixed > li a {
     font-size: 16px;
@@ -285,11 +292,11 @@ ul.side-nav.fixed > li ul li a {
 .collapsible-header {
     min-height: 2rem;
 }
-ul.side-nav.fixed li a {
+ul.side-nav.fixed li a{
     padding: 0 5px;
 }
-body > main > div > div > div > div > div > div{
-    min-height:500px;
+ul.side-nav.fixed li div > i{
+    margin-left:5px;
 }
 
 body > header > nav > div > ul > li.divider{
@@ -302,6 +309,11 @@ body > header > nav > div > ul > li.divider{
 span.badgeTicket{
     float:none !important;
     margin:auto;
+}
+.waves-effect.waves-pink .waves-ripple {
+     /* The alpha value allows the text and background color
+     of the button to still show through. */
+      background-color:    rgba(196,0,122,1); 
 }
 @media only screen and (min-width: 993px){
     header, .main:not(.nopadding), footer {

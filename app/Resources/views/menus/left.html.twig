@@ -6,13 +6,31 @@
         </a>
     </li>
     <li>
-        <div class="collapsible-header waves-effect waves-teal">
+        <div class="collapsible-header waves-effect waves-pink {% if app.request.get('_route') in ['eleve_default_index'] %}active{% endif %}">
             <a href="{{path('eleve_default_index')}}"><i class="material-icons">home</i> Accueil</a>
         </div>
     </li>
     <li>
-        <div class="collapsible-header collapsible waves-effect waves-teal {#{% if app.request.get('_route') in ['admin_article_new','admin_article_index','admin_article_show','admin_article_edit'] %}active{% endif %}#}">
+        <div class="collapsible-header collapsible waves-effect waves-pink {% if app.request.get('_route') in ['eleve_default_getmessages','eleve_default_getmessages','eleve_default_paiements'] %}active{% endif %}">
             <i class="large material-icons">account_box</i> Mon espace
+        </div>
+        <div {% if app.request.get('_route') in ['eleve_default_profil','eleve_default_getmessages','eleve_default_paiements'] %}style='display:block'{% endif %} class="collapsible-body">
+            <ul>
+                <li class="{% if app.request.get('_route') == 'eleve_default_profil' %}active{% endif%}">
+                    <a href="{{path('eleve_default_profil')}}"><i class="material-icons">account_box</i> Mon profil</a>
+                </li>
+                <li class="{% if app.request.get('_route') == 'eleve_default_getmessages' %}active{% endif%}">
+                    <a href="{{path('eleve_default_getmessages')}}"><i class="material-icons">mail_outline</i> Messagerie</a>
+                </li>
+                <li class="{% if app.request.get('_route') == 'eleve_default_paiements' %}active{% endif%}">
+                    <a href="{{path('eleve_default_paiements')}}"><i class="material-icons">euro_symbol</i> Mes paiements</a>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li>
+        <div class="collapsible-header collapsible waves-effect waves-pink {#{% if app.request.get('_route') in ['admin_article_new','admin_article_index','admin_article_show','admin_article_edit'] %}active{% endif %}#}">
+            <i class="large material-icons">account_box</i> Ma formation
         </div>
         <div {#{% if app.request.get('_route') in ['admin_article_new','admin_article_index','admin_article_edit','admin_article_show'] %}style='display:block'{% endif %}#} class="collapsible-body">
             <ul>
@@ -24,7 +42,7 @@
     </li>
     {#
     <li>
-        <div class="collapsible-header collapsible waves-effect waves-teal {% if app.request.get('_route') in ['admin_category_new','admin_category_index','admin_category_show','admin_category_edit'] %}active{% endif %}">
+        <div class="collapsible-header collapsible waves-effect waves-pink {% if app.request.get('_route') in ['admin_category_new','admin_category_index','admin_category_show','admin_category_edit'] %}active{% endif %}">
             <i class="material-icons">folder</i> Catégories
         </div>
         <div {% if app.request.get('_route') in ['admin_category_new','admin_category_index','admin_category_show','admin_category_edit'] %}style='display:block'{% endif %} class="collapsible-body">
@@ -39,7 +57,7 @@
         </div>
     </li>
     <li>
-        <div class="collapsible-header collapsible waves-effect waves-teal {% if app.request.get('_route')|slice(0,12) == 'admin_module' %}active{% endif %}">
+        <div class="collapsible-header collapsible waves-effect waves-pink {% if app.request.get('_route')|slice(0,12) == 'admin_module' %}active{% endif %}">
             <i class="material-icons">extension</i> Modules
         </div>
         <div {% if app.request.get('_route')|slice(0,12) == 'admin_module' %}style='display:block'{% endif %} class="collapsible-body">

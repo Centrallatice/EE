@@ -20,8 +20,8 @@ class QuestionnaireSatisfactionType extends AbstractType
     {
         $builder->add('nomOrganisme',TextType::class,array('label'=>'Nom de l\'organisme de formation','attr'=>array('readonly'=>true,'class'=>'novalidate')))
                 ->add('formation',TextType::class,array('label'=>'Intitulé de la formation','attr'=>array('readonly'=>true,'class'=>'novalidate')))
-                ->add('periodeDebut',DateType::class,array('widget' => 'single_text'))
-                ->add('periodeFin',DateType::class,array('widget' => 'single_text'))
+                ->add('periodeDebut',DateType::class,array('widget' => 'single_text','format' => 'dd/MM/yyyy',))
+                ->add('periodeFin',DateType::class,array('widget' => 'single_text','format' => 'dd/MM/yyyy',))
                 ->add('dureeFormation',IntegerType::class,array('label'=>'Durée'))
                 ->add('offreSatisfaitOrganisme',  ChoiceType::class,array(
                     'choices' => array(
@@ -67,7 +67,7 @@ class QuestionnaireSatisfactionType extends AbstractType
                     'expanded'=>true,
                     'multiple'=>false
                 ))
-                ->add('OffreRemarque', TextareaType::class,array('label'=>'Avez-vous des remarques ou des suggestions ?'))
+                ->add('OffreRemarque', TextareaType::class,array('label'=>'Avez-vous des remarques ou des suggestions ?','attr'=>array("required"=>false)))
                 ->add('relationEchanges',  ChoiceType::class,array(
                     'choices' => array(
                         'Pas du tout satisfait'=>1,
@@ -123,7 +123,7 @@ class QuestionnaireSatisfactionType extends AbstractType
                     'expanded'=>true,
                     'multiple'=>false
                 ))
-                ->add('remarqueRelation', TextareaType::class,array('label'=>'Avez-vous des remarques ou des suggestions ?'))
+                ->add('remarqueRelation', TextareaType::class,array('label'=>'Avez-vous des remarques ou des suggestions ?','attr'=>array("required"=>false)))
                 ->add('deroulementSupportUtilises',  ChoiceType::class,array(
                     'choices' => array(
                         'Pas du tout satisfait'=>1,
@@ -223,7 +223,7 @@ class QuestionnaireSatisfactionType extends AbstractType
                     'expanded'=>true,
                     'multiple'=>false
                 ))
-                ->add('deroulementRemarque', TextareaType::class,array('label'=>'Avez-vous des remarques ou des suggestions ?'))
+                ->add('deroulementRemarque', TextareaType::class,array('label'=>'Avez-vous des remarques ou des suggestions ?','attr'=>array("required"=>false)))
                 ->add('aProposNouveauAppel',ChoiceType::class,array(
                     'choices' => array(
                         'Oui'=>1,
@@ -244,7 +244,7 @@ class QuestionnaireSatisfactionType extends AbstractType
                     'multiple'=>false
                 ))
                 ->add('aProposRecommandationComm',TextType::class,array('label'=>'Si non, pourquoi ?'))
-                ->add('aProposRemarque', TextareaType::class,array('label'=>'Avez-vous des remarques ou des suggestions ?'));
+                ->add('aProposRemarque', TextareaType::class,array('label'=>'Avez-vous des remarques ou des suggestions ?',"required"=>false));
     }
     
     /**
@@ -253,7 +253,7 @@ class QuestionnaireSatisfactionType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'EleveBundle\Entity\QuestionnaireSatisfaction'
+            'data_class' => 'EleveBundle\Entity\EntityMain\QuestionnaireSatisfaction'
         ));
     }
 
