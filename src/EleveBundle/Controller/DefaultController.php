@@ -61,16 +61,8 @@ class DefaultController extends Controller
      */
     public function getMessagesAction()
     {
-        $CourriersLu = $this->getDoctrine()->getManager($this->container->getParameter("data_source"))->getRepository("EleveBundle\Entity\EntityMain\Courrieretatlecture")->findBy(array("numordre"=>$this->getUser(),"etatlecture"=>0),array("etatlecture"=>"ASC"));
-        $CourriersNonLu = $this->getDoctrine()->getManager($this->container->getParameter("data_source"))->getRepository("EleveBundle\Entity\EntityMain\Courrieretatlecture")->findBy(array("numordre"=>$this->getUser(),"etatlecture"=>1),array("etatlecture"=>"ASC"));
-        $CourriersAr = $this->getDoctrine()->getManager($this->container->getParameter("data_source"))->getRepository("EleveBundle\Entity\EntityMain\Courrieretatlecture")->findBy(array("numordre"=>$this->getUser(),"etatlecture"=>2),array("etatlecture"=>"ASC"));
-        $Tickets = $this->getDoctrine()->getManager($this->container->getParameter("data_source"))->getRepository("EleveBundle\Entity\EntityMain\AffectationTicket")->findBy(array("numOrdre"=>$this->getUser(),"actif"=>true),array("dateCreation"=>"DESC"));        
-        return $this->render('EleveBundle:Courriers:index.html.twig',array(
-            "CourriersLu"=>$CourriersLu,
-            "CourriersNonLu"=>$CourriersNonLu,
-            "CourriersAr"=>$CourriersAr,
-            "Tickets"=>$Tickets
-        ));
+        $datas=$this->container->get('services.messagerie')->getListesCourriers();
+        return $this->render('EleveBundle:Courriers:index.html.twig',$datas);
     }
     /**
      * @Route("/getTicket/{id}")
