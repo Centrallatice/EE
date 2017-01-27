@@ -20,7 +20,7 @@ class Courrieretatlecture
     private $codecourrier;
 
     /**
-    * @ORM\ManyToOne(targetEntity="Eleve", inversedBy="numordre")
+    * @ORM\ManyToOne(targetEntity="EleveBundle\Entity\EntityCulture\Eleve", inversedBy="numordre")
     * @ORM\JoinColumn(name="numOrdre", referencedColumnName="Commandes_NoOrdre", nullable=false)
      */
     private $numordre;
@@ -154,7 +154,7 @@ class Courrieretatlecture
     /**
      * @var boolean
      *
-     * @ORM\Column(name="Traite", type="boolean", nullable=true)
+     * @ORM\Column(name="Traité", type="boolean", nullable=true)
      */
     private $traite = '0';
 
@@ -879,11 +879,11 @@ class Courrieretatlecture
     /**
      * Set numordre
      *
-     * @param \EleveBundle\Entity\EntityMain\Eleve $numordre
+     * @param \EleveBundle\Entity\EntityCulture\Eleve $numordre
      *
      * @return Courrieretatlecture
      */
-    public function setNumordre(\EleveBundle\Entity\EntityMain\Eleve $numordre)
+    public function setNumordre(\EleveBundle\Entity\EntityCulture\Eleve $numordre)
     {
         $this->numordre = $numordre;
 
@@ -893,7 +893,7 @@ class Courrieretatlecture
     /**
      * Get numordre
      *
-     * @return \EleveBundle\Entity\EntityMain\Eleve
+     * @return \EleveBundle\Entity\EntityCulture\Eleve
      */
     public function getNumordre()
     {

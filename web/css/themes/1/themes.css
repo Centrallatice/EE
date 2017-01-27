@@ -72,9 +72,7 @@ ul.side-nav li.logo a#logo-container{
     -webkit-animation:animation-menu-gauche-texte-i 0.3s linear;
     color: rgba(196,0,122,1);
 }
-.side-nav .collapsible-body>ul:not(.collapsible)>li.active{
-    border-left:2px solid rgba(196,0,122,1);
-}
+
 @keyframes animation-menu-gauche {
     from {
         margin-top:15px;

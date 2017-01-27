@@ -19,11 +19,15 @@
                             <tr>
                                 <th style="width:20%">Date</th>
                                 <th>Sujet</th>
+                                <th>Contenu</th>
                             </tr>
                         </thead>
                         <tbody>
                         {% for c in CourriersLu %}
-                            <tr><td>{{c.dateenvoi|date('d/m/Y H:i')}}</td><td>{{c.codecourrier.titre}}</td></tr>
+                            <tr>
+                                <td>{{c.dateenvoi|date('d/m/Y H:i')}}</td>
+                                <td>{{c.codecourrier.titre}}</td>
+                            </tr>
                         {% endfor %}
                         </tbody>
                     </table>

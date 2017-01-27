@@ -6,142 +6,153 @@
 {% endblock %}
 {% block breadcrumb %}<a class="breadcrumb" href="#!">Mon profil</a>{% endblock %}
 {% block body %}
-            <div class="card-panel grey lighten-5 z-depth-1">
-                <div class="row valign-wrapper">
-                    <div class="col hide-on-small-and-down m2">
-                        <i class="material-icons blue-text medium center-align center-block">account_box</i>
-                    </div>
-                    <div class="col s12 m10">
-                         <table class="highlight z-depth-2 hide-on-small-and-down">
-                            <thead>
-                                <tr>
-                                    <th colspan="2"><h5>Mon identité</h5></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="s12 m3"><label>Nom : </label></td>
-                                    <td class="s12 m9">{{app.user.prospectNom}}</td>
-                                </tr>
-                                <tr>
-                                    <td class="s12 m3">{% if app.user.prospectTitre<3 %}Née{% else %}Né{% endif %} le : </td>
-                                    <td class="s12 m9">{{app.user.prospectDateNaissance|date('d/m/Y')}}</td>
-                                </tr>
-                                <tr>
-                                    <td class="s12 m3">Numéro d'élève : </td>
-                                    <td class="s12 m9">{{app.user.password}}</td>
-                                </tr>
-                            </tbody>
-                         </table>
-                         <div class="z-depth-2 hide-on-med-and-up show-on-small">
-                            <h5>Votre identité</h5>
-                            <p><label>Nom </label> : {{app.user.prospectNom}}</p>
-                            <p><label>{% if app.user.prospectTitre<3 %}Née{% else %}Né{% endif %} le </label> : {{app.user.prospectDateNaissance|date('d/m/Y')}}</p>
-                            <p><label>Numéro d'élève </label> : {{app.user.password}}</p>
-                        </div>
-                    </div>
+    <p class="right-align">  
+        Votre dossier a était mis à jour par nos services le {{app.user.prospectAccessDateDernieremodif|date('d/m/Y')}}<br>
+        Pour signaler un changement, veuillez contacter votre assistante 
+        <a href="#contactAssistanteCoordonnees">par mail <i class="material-icons tiny">mail_outline</i></a>
+        ou <a href="tel:{{donnees.Assistante.agentNumTel|slice(0, 1)|replace({'0': '+333'})}}{{donnees.Assistante.agentNumTel|slice(2)|replace({' ': ''})}}">par téléphone ({{donnees.Assistante.agentNumTel}}) <i class="material-icons tiny">contact_phone</i></a>
+    </p>
+
+    <div class="card-panel grey lighten-5 z-depth-1">
+        <div class="row valign-wrapper">
+            <div class="col hide-on-small-and-down m2">
+                <i class="material-icons blue-text large center-align center-block">account_box</i>
+            </div>
+            <div class="col s12 m10">
+                 <table class="highlight z-depth-2 hide-on-small-and-down">
+                    <thead>
+                        <tr>
+                            <th colspan="2"><h5>Mon identité</h5></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="s12 m3"><label>Nom : </label></td>
+                            <td class="s12 m9">{{app.user.prospectNom}}</td>
+                        </tr>
+                        <tr>
+                            <td class="s12 m3"><label>{% if app.user.prospectTitre<3 %}Née{% else %}Né{% endif %} le : </label></td>
+                            <td class="s12 m9">{{app.user.prospectDateNaissance|date('d/m/Y')}}</td>
+                        </tr>
+                        <tr>
+                            <td class="s12 m3"><label>Numéro d'élève : </label></td>
+                            <td class="s12 m9">{{app.user.password}}</td>
+                        </tr>
+                    </tbody>
+                 </table>
+                 <div class="z-depth-2 hide-on-med-and-up show-on-small">
+                    <h5>Votre identité</h5>
+                    <p><label>Nom </label> : {{app.user.prospectNom}}</p>
+                    <p><label>{% if app.user.prospectTitre<3 %}Née{% else %}Né{% endif %} le </label> : {{app.user.prospectDateNaissance|date('d/m/Y')}}</p>
+                    <p><label>Numéro d'élève </label> : {{app.user.password}}</p>
                 </div>
             </div>
-            <div class="card-panel grey lighten-5 z-depth-1">
-                <div class="row valign-wrapper">
-                    <div class="col hide-on-small-and-down m2">
-                        <i class="material-icons green-text medium center-align center-block">location_on</i>
-                    </div>
-                    <div class="col s12 m10">
-                         <table class="highlight z-depth-2 hide-on-small-and-down">
-                            <thead>
-                                <tr>
-                                    <th colspan="2"><h5>Mes coordonnées</h5></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="s12 m3"><label>E-mail : </label></td>
-                                    <td class="s12 m9">{{app.user.prospectEmail}}</td>
-                                </tr>
-                                <tr>
-                                    <td class="s12 m3">Adresse : </td>
-                                    <td class="s12 m9">
-                                        <ul class="collection">
-                                            {% if app.user.prospectAdresse1!=''%}<li class="collection-item">{{app.user.prospectAdresse1}}</li>{% endif %}
-                                            {% if app.user.prospectAdresse2!=''%}<li class="collection-item">{{app.user.prospectAdresse2}}</li>{% endif %}
-                                            {% if app.user.prospectAdresse3!=''%}<li class="collection-item">{{app.user.prospectAdresse3}}</li>{% endif %}
-                                            {% if app.user.prospectAdresse4!=''%}<li class="collection-item">{{app.user.prospectAdresse4}}</li>{% endif %}
-                                            <li class="collection-item">{{app.user.prospectCp}} {{app.user.prospectVille}}</li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="s12 m3">Téléphones : </td>
-                                    <td class="s12 m9">
-                                        <ul class="collection">
-                                            {% if app.user.prospectTeldomicile!=''%}<li class="collection-item">{{app.user.prospectTeldomicile}}</li>{% endif %}
-                                            {% if app.user.prospectTelportable!=''%}<li class="collection-item">{{app.user.prospectTelportable}}</li>{% endif %}
-                                            {% if app.user.prospectTeltravail!=''%}<li class="collection-item">{{app.user.prospectTeltravail}}</li>{% endif %}
-                                        </ul>
-                                    </td>
-                                </tr>
-                            </tbody>
-                         </table>
-                         <div class="z-depth-2 hide-on-med-and-up show-on-small">
-                            <h5>Vos coordonnées</h5>
-                            <p><label>E-mail </label> : {{app.user.prospectEmail}}</p>
-                            <p><label>Adresse </label> :  
-                                {% if app.user.prospectAdresse1!=''%}{{app.user.prospectAdresse1}}<br />{% endif %}
-                                {% if app.user.prospectAdresse2!=''%}{{app.user.prospectAdresse2}}<br />{% endif %}
-                                {% if app.user.prospectAdresse3!=''%}{{app.user.prospectAdresse3}}<br />{% endif %}
-                                {% if app.user.prospectAdresse4!=''%}{{app.user.prospectAdresse4}}<br />{% endif %}
-                                {{app.user.prospectCp}} {{app.user.prospectVille}}
-                            </p>
-                            <p><label>Téléphones </label> : 
-                                {% if app.user.prospectTeldomicile!=''%}{{app.user.prospectTeldomicile}}<br />{% endif %}
-                                {% if app.user.prospectTelportable!=''%}{{app.user.prospectTelportable}}<br />{% endif %}
-                                {% if app.user.prospectTeltravail!=''%}{{app.user.prospectTeltravail}}<br />{% endif %}
-                            </p>
-                        </div>
-                    </div>
+        </div>
+    </div>
+    <div class="card-panel grey lighten-5 z-depth-1">
+        <div class="row valign-wrapper">
+            <div class="col hide-on-small-and-down m2">
+                <i class="material-icons green-text large center-align center-block">location_on</i>
+            </div>
+            <div class="col s12 m10">
+                 <table class="highlight z-depth-2 hide-on-small-and-down">
+                    <thead>
+                        <tr>
+                            <th colspan="2"><h5>Mes coordonnées</h5></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="s12 m3"><label>E-mail : </label></td>
+                            <td class="s12 m9">{{app.user.prospectEmail}}</td>
+                        </tr>
+                        <tr>
+                            <td class="s12 m3"><label>Adresse : </label></td>
+                            <td class="s12 m9">
+                                <ul class="collection">
+                                    {% if app.user.prospectAdresse1!=''%}<li class="collection-item">{{app.user.prospectAdresse1}}</li>{% endif %}
+                                    {% if app.user.prospectAdresse2!=''%}<li class="collection-item">{{app.user.prospectAdresse2}}</li>{% endif %}
+                                    {% if app.user.prospectAdresse3!=''%}<li class="collection-item">{{app.user.prospectAdresse3}}</li>{% endif %}
+                                    {% if app.user.prospectAdresse4!=''%}<li class="collection-item">{{app.user.prospectAdresse4}}</li>{% endif %}
+                                    <li class="collection-item">{{app.user.prospectCp}} {{app.user.prospectVille}}</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="s12 m3"><label>Téléphones : </label></td>
+                            <td class="s12 m9">
+                                <ul class="collection">
+                                    {% if app.user.prospectTeldomicile!=''%}<li class="collection-item"><i class="material-icons tiny left">phone</i>{{app.user.prospectTeldomicile}}</li>{% endif %}
+                                    {% if app.user.prospectTelportable!=''%}<li class="collection-item"><i class="material-icons tiny left">phonelink_ring</i>{{app.user.prospectTelportable}}</li>{% endif %}
+                                    {% if app.user.prospectTeltravail!=''%}<li class="collection-item"><i class="material-icons tiny left">phone_android</i>{{app.user.prospectTeltravail}}</li>{% endif %}
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                 </table>
+                 <div class="z-depth-2 hide-on-med-and-up show-on-small">
+                    <h5>Vos coordonnées</h5>
+                    <p><label>E-mail </label> : {{app.user.prospectEmail}}</p>
+                    <p><label>Adresse </label> :  
+                        {% if app.user.prospectAdresse1!=''%}{{app.user.prospectAdresse1}}<br />{% endif %}
+                        {% if app.user.prospectAdresse2!=''%}{{app.user.prospectAdresse2}}<br />{% endif %}
+                        {% if app.user.prospectAdresse3!=''%}{{app.user.prospectAdresse3}}<br />{% endif %}
+                        {% if app.user.prospectAdresse4!=''%}{{app.user.prospectAdresse4}}<br />{% endif %}
+                        {{app.user.prospectCp}} {{app.user.prospectVille}}
+                    </p>
+                    <p><label>Téléphones </label> : 
+                        {% if app.user.prospectTeldomicile!=''%}<i class="material-icons tiny left">phone</i>{{app.user.prospectTeldomicile}}<br />{% endif %}
+                        {% if app.user.prospectTelportable!=''%}<i class="material-icons tiny left">phonelink_ring</i>{{app.user.prospectTelportable}}<br />{% endif %}
+                        {% if app.user.prospectTeltravail!=''%}<i class="material-icons tiny left">phone_android</i>{{app.user.prospectTeltravail}}<br />{% endif %}
+                    </p>
                 </div>
             </div>
-            <div class="card-panel grey lighten-5 z-depth-1">
-                <div class="row valign-wrapper">
-                    <div class="col hide-on-small-and-down m2">
-                        <i class="material-icons purple-text medium center-align center-block">grade</i>
-                    </div>
-                    <div class="col s12 m10">
-                         <table class="highlight z-depth-2 hide-on-small-and-down">
-                            <thead>
-                                <tr>
-                                    <th colspan="2"><h5>Mes études</h5></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="s12 m3"><label>Profession : </label></td>
-                                    <td class="s12 m9">{{app.user.prospectEmail}}</td>
-                                </tr>
-                                <tr>
-                                    <td class="s12 m3"><label>Niveau d'étude : </label></td>
-                                    <td class="s12 m9">{{app.user.prospectEmail}}</td>
-                                </tr>
-                                <tr>
-                                    <td class="s12 m3"><label>Formation suivie : </label></td>
-                                    <td class="s12 m9">{{app.user.prospectEmail}}</td>
-                                </tr>
-                                <tr>
-                                    <td class="s12 m3"><label>Débutée le : </label></td>
-                                    <td class="s12 m9">{{app.user.prospectEmail}}</td>
-                                </tr>
-                            </tbody>
-                         </table>
-                         <div class="z-depth-2 hide-on-med-and-up show-on-small">
-                            <h5>Vos coordonnées</h5>
-                            <p><label>E-mail </label> : {{app.user.prospectEmail}}</p>
-                            <p><label>Niveau d'étude </label> : {{app.user.prospectEmail}}</p>
-                            <p><label>Formation suivie </label> : {{app.user.prospectEmail}}</p>
-                            <p><label>Débutée le </label> : {{app.user.prospectEmail}}</p>
-                        </div>
-                    </div>
+        </div>
+    </div>
+    <div class="card-panel grey lighten-5 z-depth-1">
+        <div class="row valign-wrapper">
+            <div class="col hide-on-small-and-down m2">
+                <i class="material-icons purple-text large center-align center-block">grade</i>
+            </div>
+            <div class="col s12 m10">
+                 <table class="highlight z-depth-2 hide-on-small-and-down">
+                    <thead>
+                        <tr>
+                            <th colspan="2"><h5>Mes études</h5></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="s12 m3"><label>Profession : </label></td>
+                            <td class="s12 m9">{{donnees.Profession.professionDescription}}</td>
+                        </tr>
+                        <tr>
+                            <td class="s12 m3"><label>Niveau d'étude : </label></td>
+                            <td class="s12 m9">{{donnees.Etude.etudeDescription}}</td>
+                        </tr>
+                        <tr>
+                            <td class="s12 m3"><label>Formation suivie : </label></td>
+                            <td class="s12 m9">{{donnees.Formation.formationLibelle}}</td>
+                        </tr>
+                        <tr>
+                            <td class="s12 m3"><label>Débutée le : </label></td>
+                            <td class="s12 m9">{{app.user.commandeDatesignaturebi|date('d/m/Y')}}</td>
+                        </tr>
+                    </tbody>
+                 </table>
+                 <div class="z-depth-2 hide-on-med-and-up show-on-small">
+                    <h5>Vos coordonnées</h5>
+                    <p><label>E-mail </label> : {{donnees.Profession.professionDescription}}</p>
+                    <p><label>Niveau d'étude </label> : {{donnees.Etude.etudeDescription}}</p>
+                    <p><label>Formation suivie </label> : {{donnees.Formation.formationLibelle}}</p>
+                    <p><label>Débutée le </label> : {{app.user.commandeDatesignaturebi|date('d/m/Y')}}</p>
                 </div>
-            </div>     
-                    {{dump(app.user)}}
+            </div>
+        </div>
+    </div>     
+    {% include 'modals/contactAssistanteCoordonnees.html.twig' %}
+{% endblock %}
+{% block javascripts %}
+    {{parent()}}
+    <script src="{{ asset('js/modals/contactAssistanteCoordonnees.js') }}"></script>
 {% endblock %}

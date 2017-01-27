@@ -25,7 +25,7 @@ class QuestionnaireSatisfactionController extends Controller
         $existeQuestionnaire = $this->getDoctrine()->getRepository("EleveBundle\Entity\EntityMain\QuestionnaireSatisfaction")->findOneBy(array("numOrdre"=>$user));
         if($existeQuestionnaire==null):
             $questionnaireSatisfaction = new Questionnairesatisfaction();
-            $formation = $this->getDoctrine()->getManager("datas_fr")->getRepository("EleveBundle\Entity\EntityFormations\Formations")->findOneBy(array("formation"=>$user->getFormationCode()));
+            $formation = $this->getDoctrine()->getManager($this->getParameter("data_source"))->getRepository("EleveBundle\Entity\EntityFormations\Formations")->findOneBy(array("formation"=>$user->getFormationCode()));
             $form = $this->createForm('EleveBundle\Form\QuestionnaireSatisfactionType', $questionnaireSatisfaction);
             $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()) {

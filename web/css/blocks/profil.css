@@ -11,7 +11,10 @@ table.highlight thead tr th{
 table.highlight tbody tr td label{
     font-size: 1rem;
 }
-
+ul.collection,ul.collection li.collection-item{
+    border:none;
+    padding:5px 0;
+}
 @media only screen and (max-width: 601px) {
     .z-depth-2 label{
         font-size: 1rem;

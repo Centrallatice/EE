@@ -43,7 +43,7 @@ class AffectationTicket
     private $idTicket;
 
     /**
-    * @ORM\ManyToOne(targetEntity="Eleve", inversedBy="numordre")
+    * @ORM\ManyToOne(targetEntity="EleveBundle\Entity\EntityCulture\Eleve", inversedBy="numordre")
     * @ORM\JoinColumn(name="numOrdre", referencedColumnName="Commandes_NoOrdre", nullable=false)
      */
     private $numOrdre;

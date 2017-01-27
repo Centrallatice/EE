@@ -62,7 +62,7 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator
     public function checkCredentials($credentials, UserInterface $user)
     {
         $plainPassword = $credentials['password'];
-        $formation = $this->container->get('doctrine')->getManager("datas_fr")->getRepository("EleveBundle\Entity\EntityFormations\Formations")->findOneBy(array("formation"=>$user->getFormationCode()));
+        $formation = $this->container->get('doctrine')->getManager( $this->container->getParameter("data_source"))->getRepository("EleveBundle\Entity\EntityMain\Formations")->findOneBy(array("formation"=>$user->getFormationCode()));
         $marque=$formation->getMarque();
         
         if ($this->encoder->isPasswordValid($user, $plainPassword) && $marque==$this->container->getParameter("marque")) {

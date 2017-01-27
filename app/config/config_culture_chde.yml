@@ -1,0 +1,8 @@
+imports:
+    - { resource: config.yml }
+
+parameters:
+    data_source : datas_chde
+    locale: de
+    marque: 6
+    nomMarque: Kultur Und Ausbildung

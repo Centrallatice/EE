@@ -22,7 +22,7 @@ class QuestionnaireSatisfaction
     private $id;
     
     /**
-    * @ORM\ManyToOne(targetEntity="Eleve", inversedBy="numordre")
+    * @ORM\ManyToOne(targetEntity="EleveBundle\Entity\EntityCulture\Eleve", inversedBy="numordre")
     * @ORM\JoinColumn(name="numOrdre", referencedColumnName="Commandes_NoOrdre", nullable=false)
      */
     private $numOrdre;
@@ -1008,11 +1008,11 @@ class QuestionnaireSatisfaction
     /**
      * Set numOrdre
      *
-     * @param \EleveBundle\Entity\EntityMain\Eleve $numOrdre
+     * @param \EleveBundle\Entity\EntityCulture\Eleve $numOrdre
      *
      * @return QuestionnaireSatisfaction
      */
-    public function setNumOrdre(\EleveBundle\Entity\EntityMain\Eleve $numOrdre)
+    public function setNumOrdre(\EleveBundle\Entity\EntityCulture\Eleve $numOrdre)
     {
         $this->numOrdre = $numOrdre;
 
@@ -1022,7 +1022,7 @@ class QuestionnaireSatisfaction
     /**
      * Get numOrdre
      *
-     * @return \EleveBundle\Entity\EntityMain\Eleve
+     * @return \EleveBundle\Entity\EntityCulture\Eleve
      */
     public function getNumOrdre()
     {

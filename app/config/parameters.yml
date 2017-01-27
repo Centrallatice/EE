@@ -1,12 +1,12 @@
 # This file is auto-generated during the composer install
 parameters:
-    database_host: none
+    database_host: (local)\bestiole
     database_port: 1433
-    database_name: EE
+    database_name: datas_fr
     database_user: sa
-    database_password: none
-    mailer_transport: smtp
+    database_password: cu0707_TMSC
+    mailer_transport: mail
     mailer_host: 127.0.0.1
     mailer_user: null
     mailer_password: null
-    secret: none
+    secret: cu0707_TMSC

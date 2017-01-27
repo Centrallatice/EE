@@ -10,6 +10,9 @@
 
 {%- block form_widget_simple -%}
     {%- set type = type|default('text') -%}
+    {% if attr is defined %}
+        {% if attr.type is defined %} {%- set type = attr.type|default('text') -%} {% endif %}
+    {% endif %}
     {% if type not in ['file'] %}
         <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
     {% else %}

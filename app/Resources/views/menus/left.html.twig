@@ -11,7 +11,7 @@
         </div>
     </li>
     <li>
-        <div class="collapsible-header collapsible waves-effect waves-pink {% if app.request.get('_route') in ['eleve_default_getmessages','eleve_default_getmessages','eleve_default_paiements'] %}active{% endif %}">
+        <div class="collapsible-header collapsible waves-effect waves-pink {% if app.request.get('_route') in ['eleve_default_profil','eleve_default_getmessages','eleve_default_paiements'] %}active{% endif %}">
             <i class="large material-icons">account_box</i> Mon espace
         </div>
         <div {% if app.request.get('_route') in ['eleve_default_profil','eleve_default_getmessages','eleve_default_paiements'] %}style='display:block'{% endif %} class="collapsible-body">

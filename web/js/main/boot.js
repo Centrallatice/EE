@@ -5,6 +5,7 @@ var cookieOptions = {
 }
 
 $(document).ready(function(){
+   $('.modal').modal();
    $(".dropdown-button").dropdown();
    $(".button-collapse").sideNav();
    Materialize.updateTextFields();

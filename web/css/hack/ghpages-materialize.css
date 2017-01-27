@@ -4881,7 +4881,7 @@ textarea.materialize-textarea+label:after {
     transition: .2s ease-out
 }
 .input-field label.active {
-    font-size: 0.8rem;
+    font-size: 1rem;
     -webkit-transform: translateY(-140%);
     transform: translateY(-140%)
 }

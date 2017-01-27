@@ -9,7 +9,6 @@
 namespace EleveBundle\Service;
 
 
-use Doctrine\ORM\EntityManager;
 use Symfony\Component\DependencyInjection\Container;
 /**
  * Description of FicheService
@@ -17,15 +16,15 @@ use Symfony\Component\DependencyInjection\Container;
  * @author sylvain.dupont
  */
 class MessagerieService {
-    public function __construct(EntityManager $em,Container $service,$securityContext) {
-        $this->em = $em;
-        $this->container_service = $service;
+    public function __construct(Container $service,$securityContext) {
+        
+        $this->container = $service;
         $this->user = $securityContext->getToken()->getUser();
     } 
     
     public function getNbrNonLu(){
        
-        $qb = $this->em->createQueryBuilder();
+        $qb = $this->container->get('doctrine')->getManager($this->container->getParameter("data_source"))->createQueryBuilder();
         $qb->select('count(Ec.numordre)');
         $qb->from('EleveBundle\Entity\EntityMain\Courrieretatlecture','Ec');
         $qb->where("Ec.numordre = :n");

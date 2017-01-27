@@ -1,0 +1,74 @@
+<div id="contactAssistanteCoordonnees" class="modal">
+    <div class="modal-content">
+        <div class="row">
+            <div class="col s12">
+                {{ form_start(form) }}
+                    <div class="row">
+                        <div class="input-field col s12 m7">
+                            {{ form_label(form.prospectNom) }}
+                            {{ form_errors(form.prospectNom) }}
+                            {{ form_widget(form.prospectNom) }}
+                        </div>
+                        <div class="input-field col s12 m5">            
+                            {{ form_label(form.prospectDateNaissance) }}
+                            {{ form_errors(form.prospectDateNaissance) }}
+                            {{ form_widget(form.prospectDateNaissance) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m7">
+                            {{ form_label(form.prospectEmail) }}
+                            {{ form_errors(form.prospectEmail) }}
+                            {{ form_widget(form.prospectEmail) }}    
+                        </div>    
+                        <div class="input-field col s12 m5">
+                            {{ form_label(form.prospectEtude) }}
+                            {{ form_errors(form.prospectEtude) }}
+                            {{ form_widget(form.prospectEtude) }}      
+                        </div>    
+                    </div>  
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            {{ form_label(form.prospectAdresse3) }}
+                            {{ form_errors(form.prospectAdresse3) }}
+                            {{ form_widget(form.prospectAdresse3) }} 
+                        </div>    
+                        <div class="input-field col s12 m3">
+                            {{ form_label(form.prospectCp) }}
+                            {{ form_errors(form.prospectCp) }}
+                            {{ form_widget(form.prospectCp) }} 
+                        </div>    
+                        <div class="input-field col s12 m3">
+                            {{ form_label(form.prospectVille) }}
+                            {{ form_errors(form.prospectVille) }}
+                            {{ form_widget(form.prospectVille) }}  
+                        </div>    
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m4">
+                            {{ form_label(form.prospectTeldomicile) }}
+                            {{ form_errors(form.prospectTeldomicile) }}
+                            {{ form_widget(form.prospectTeldomicile) }} 
+                        </div>    
+                        <div class="input-field col s12 m4">
+                            {{ form_label(form.prospectTelportable) }}
+                            {{ form_errors(form.prospectTelportable) }}
+                            {{ form_widget(form.prospectTelportable) }}  
+                        </div>    
+                        <div class="input-field col s12 m4">
+                            {{ form_label(form.prospectTeltravail) }}
+                            {{ form_errors(form.prospectTeltravail) }}
+                            {{ form_widget(form.prospectTeltravail) }}
+                        </div>    
+                    </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="modal-footer">
+        <div class="col s12">
+            <button type="submit" class="right btn btn-success">Envoyer <i class="material-icons right">send</i></button>
+        </div>
+    </div>
+    {{ form_end(form) }}
+</div>

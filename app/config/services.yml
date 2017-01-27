@@ -3,7 +3,10 @@ services:
         class: EleveBundle\Service\IntegerEncoder
     services.messagerie:
         class:  EleveBundle\Service\MessagerieService
-        arguments: ["@doctrine.orm.entity_manager","@service_container","@security.token_storage"]
+        arguments: ["@service_container","@security.token_storage"]
+    services.eleves:
+        class:  EleveBundle\Service\EleveService
+        arguments: ["@service_container","@security.token_storage"]
     app.form_login_authenticator:
         class: EleveBundle\Security\FormLoginAuthenticator
         arguments: ["@router", "@security.password_encoder","@service_container","@doctrine.orm.entity_manager"]
