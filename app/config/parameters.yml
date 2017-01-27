@@ -4,9 +4,9 @@ parameters:
     database_port: 1433
     database_name: EE
     database_user: sa
-    database_password: cu0707_TMSC
+    database_password: none
     mailer_transport: smtp
     mailer_host: 127.0.0.1
     mailer_user: null
     mailer_password: null
-    secret: cu0707_TMSC
+    secret: none
