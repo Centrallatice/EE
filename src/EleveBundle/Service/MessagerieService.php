@@ -48,7 +48,9 @@ class MessagerieService {
         $qb->select('count(Ec.numordre)');
         $qb->from('EleveBundle\Entity\EntityMain\Courrieretatlecture','Ec');
         $qb->where("Ec.numordre = :n");
+        $qb->andWhere("Ec.etatlecture=:e");
         $qb->setParameter("n", $this->user->getCommandesNoordre());
+        $qb->setParameter("e", 0);
 
         $count = $qb->getQuery()->getSingleScalarResult();
         return $count;
